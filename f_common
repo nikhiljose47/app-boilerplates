@@ -1,0 +1,28 @@
+1.Round bordered container
+Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black),
+                      shape: BoxShape.circle),
+                        padding: EdgeInsets.all(8),
+                      width:30,
+                      height: 30,
+                )
+                
+ 2.List Card
+         Container(
+            decoration: new BoxDecoration(
+              color: Colors.white10,
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey,
+                  width: 0.5,
+                ),
+              ),
+            ),
+            child: ListTile(
+              leading: Icon(
+                Icons.reorder,
+              ),
+              title: Text('Manage Orders'),
+            ),
+          ),
