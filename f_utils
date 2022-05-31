@@ -26,3 +26,24 @@ Container(
               title: Text('Manage Orders'),
             ),
           ),
+
+3.Dialog
+  showAlertDialog(BuildContext context) {
+    String title;
+    String content;
+    List<Widget> actions;
+
+    Widget okButton = ElevatedButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+        title: Text(title), content: Text(content), actions: actions);
+      },
+    );
