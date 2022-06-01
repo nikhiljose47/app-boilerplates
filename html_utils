@@ -33,8 +33,7 @@
   font-size: 1rem;
 }
 
-2.//1.Add images - 2 types
-with element -
+2.Image(2)
 <img src="/assets/images/mygif.gif" />
 
 with css -
@@ -46,7 +45,7 @@ with css -
     background-repeat: no-repeat;
 }
 
-//2.basic card
+3.basic card
 //requie: Add css only
 .card{
     background-color: rgb(255, 248, 248);
@@ -56,7 +55,7 @@ with css -
     border-radius: 9px;
 }
 
-3.Drop down
+4.Drop down
     <select name="ms">    
         <option value="-1" selected="false"  >any</option>
         <option value="0" selected>only single</option>
