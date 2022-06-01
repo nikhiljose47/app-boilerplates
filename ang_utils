@@ -9,3 +9,8 @@
   @Input() value: TyperUnit;
   @Output() blinkerPos = new EventEmitter<number>();
   
+  
+2.ngIf  
+ <div *ngIf="this.data.compWin; else elseBlock">  </div>
+ <ng-template #elseBlock>  </ng-template>
+  
