@@ -32,3 +32,73 @@
 #progress-label-sub{
   font-size: 1rem;
 }
+
+2.//1.Add images - 2 types
+with element -
+<img src="/assets/images/mygif.gif" />
+
+with css -
+#bg{
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/bg-stripes.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+//2.basic card
+//requie: Add css only
+.card{
+    background-color: rgb(255, 248, 248);
+    width: 40%;
+    max-width: 30rem;
+    padding: 2%;
+    border-radius: 9px;
+}
+
+3.Drop down
+    <select name="ms">    
+        <option value="-1" selected="false"  >any</option>
+        <option value="0" selected>only single</option>
+        <option value="1">only married</option>
+    </select>
+
+4.Horizontal layout
+<div id="container">
+    <div id="left">Left Side Menu</div>
+    <div id="middle">Random Content</div>
+    <div id="right">Right Side Menu</div>
+</div>
+#container {height: 100%; width:100%; display:flex; vertical-align: top;}
+#left {width: 25%; background: blue;}
+#middle {width: 50%; background: green;}
+#right {width: 25%; background: yellow;}
+
+5.Select one with unselect others
+//css
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.show {
+  display: block;
+}
+//html
+<a (click)="openDropDown()" (pointerleave)="closeDropDown()" >
+  <div id="myDropdown" class="dropdown-content">
+        <a routerLink="/game-two">Ghost</a>
+        <a routerLink="/game-three">Follow</a>
+  </div>
+//ts    
+  openDropDown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  closeDropDown() {
+    var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+  }
+https://stackoverflow.com/questions/62682521/by-first-click-select-div-and-unselect-others-by-second-click-on-the-same-div-u
