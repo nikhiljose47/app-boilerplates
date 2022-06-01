@@ -1,0 +1,11 @@
+1.ngFor
+ typerUnits: TyperUnit[] = []; 
+ trackByItems(index: number, item: TyperUnit): number {
+    return item.state;
+  }
+  <typer-unit class="typer" *ngFor="let val of typerUnits; let i = index; trackBy: trackByItems"
+     [value]="val" (blinkerPos)="getLeftOffset($event)"> </typer-unit>
+        
+  @Input() value: TyperUnit;
+  @Output() blinkerPos = new EventEmitter<number>();
+  
