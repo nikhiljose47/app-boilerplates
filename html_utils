@@ -33,6 +33,8 @@
   font-size: 1rem;
 }
 
+
+
 2.Image(2)
 <img src="/assets/images/mygif.gif" />
 
@@ -45,14 +47,30 @@ with css -
     background-repeat: no-repeat;
 }
 
-3.basic card
+
+3.Basic card
+<div class="card">
+  <img src="img_avatar.png" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>John Doe</b></h4>
+    <p>Architect & Engineer</p>
+  </div>
+</div>
 //requie: Add css only
 .card{
     background-color: rgb(255, 248, 248);
     width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     max-width: 30rem;
     padding: 2%;
     border-radius: 9px;
+    transition: 0.3s;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+  padding: 2px 16px;
 }
 
 4.Drop down
@@ -72,6 +90,7 @@ with css -
 #left {width: 25%; background: blue;}
 #middle {width: 50%; background: green;}
 #right {width: 25%; background: yellow;}
+
 
 5.Select one with unselect others
 //css
@@ -101,3 +120,4 @@ with css -
       myDropdown.classList.remove('show');
   }
 https://stackoverflow.com/questions/62682521/by-first-click-select-div-and-unselect-others-by-second-click-on-the-same-div-u
+
