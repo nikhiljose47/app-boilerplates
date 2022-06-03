@@ -92,7 +92,7 @@ with css -
 #right {width: 25%; background: yellow;}
 
 
-5.Select one with unselect others
+5.Select one with unselect others/ Drop down 2
 //css
 .dropdown-content {
   display: none;
@@ -105,7 +105,7 @@ with css -
   display: block;
 }
 //html
-<a (click)="openDropDown()" (pointerleave)="closeDropDown()" >
+<a (click)="openDropDown()" (pointerleave)="closeDropDown()" ></a>
   <div id="myDropdown" class="dropdown-content">
         <a routerLink="/game-two">Ghost</a>
         <a routerLink="/game-three">Follow</a>
