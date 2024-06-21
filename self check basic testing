@@ -1,0 +1,10 @@
+A.Possible UI errors
+1.Check user's input
+- Long names
+- Break/Slow internent
+- unexpected closing & relacunching
+- unexpected closing of tab
+
+
+B.Possible backend failures
+1.Internet drop before saving in remote database
