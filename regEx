@@ -1,0 +1,36 @@
+Basic:
+\n, |, $1 from (),  
+*Each exp work until end of single line only
+
+
+Whole select number/pattern
+Operators: +
+ex: [0-9]+ , + will match one or more of what precedes it (a number in this case)
+
+Replace
+(<content>) -> $1 or $2
+ex: 
+Problem: Make = 1-664 --> (+1-664)
+regEx: [0-9|-]+$  --> (+$1)
+
+1.One character only match
+[a]
+post( baseurl + version) by post[(][a-z| |+]+
+
+-- Issue match ( or )
+
+2.Exact match -
+We need to tell end match or start by 
+ex: select exact cat from [cat., cat gp, catastophy] -->  ^cat$ --> [cat., <cat> gp, catastophy]
+^: placed at the start, this character matches a pattern at the start of a string.
+$: placed at the end, this character matches a pattern at the end of the string.
+
+3.End with, Start with
+match all words that end with at
+[a-z]at
+
+4.Specify length
+a{5} -  match “aaaaa”.
+[0-9]{11}  -  All 11 digit numbers
+[a-z]{8,11} - match any word between eight and 11 letters
+[a-z]{6,} -  will match any word with six or more letters.
