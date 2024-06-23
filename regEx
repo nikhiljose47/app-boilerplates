@@ -1,5 +1,5 @@
 Basic:
-\n, |, $1 from (),  
+Single character vs [], *, +, \s, \n, |, $1 from (), , 
 *Each exp work until end of single line only
 
 
