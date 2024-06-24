@@ -2,10 +2,9 @@ Basic:
 Single character vs [], *, +, \s, \n, |, $1 from (), , 
 *Each exp work until end of single line only
 
+1.Match the keywords itself - by \ ex: match grouping char = ( by \(
 
-Whole select number/pattern
-Operators: +
-ex: [0-9]+ , + will match one or more of what precedes it (a number in this case)
+
 
 Replace
 (<content>) -> $1 or $2
