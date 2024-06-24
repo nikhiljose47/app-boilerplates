@@ -4,7 +4,9 @@ Single character vs [], *, +, \s, \n, |, $1 from (), ,
 
 1.Match the keywords itself - by \ ex: match grouping char = ( by \(
 
+2.Match letters range - by [a-z]{2,5}
 
+3.Match ending with - [a-z]+$
 
 Replace
 (<content>) -> $1 or $2
