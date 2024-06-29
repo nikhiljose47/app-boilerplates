@@ -1,3 +1,7 @@
+A.Responsives
+With breakpointobserver : https://blog.angular-university.io/angular-responsive-design/
+
+
 1.ngFor
  typerUnits: TyperUnit[] = []; 
  trackByItems(index: number, item: TyperUnit): number {
