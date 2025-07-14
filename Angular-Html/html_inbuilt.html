@@ -1,0 +1,36 @@
+pseudo 
+ :: before  :: after
+    h1::before {
+     content: url(smiley.gif);
+    }
+
+.button:hover{
+  background-color: #ff9900;
+}
+
+
+MediaQuery
+
+@media (max-width: 768px) {
+  /* Styles for smaller screens */
+  .menu {
+    display: none;
+  }
+}
+
+
+Grid
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 10px;
+}
+
+
+Flexible box layout - Effective element alignment and distribution along a single axis (row or column)
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -7,11 +7,20 @@ With breakpointobserver : https://blog.angular-university.io/angular-responsive-
  trackByItems(index: number, item: TyperUnit): number {
     return item.state;
   }
-  <typer-unit class="typer" *ngFor="let val of typerUnits; let i = index; trackBy: trackByItems"
-     [value]="val" (blinkerPos)="getLeftOffset($event)"> </typer-unit>
-        
+
   @Input() value: TyperUnit;
   @Output() blinkerPos = new EventEmitter<number>();
+
+  <typer-unit class="typer" *ngFor="let val of typerUnits; let i = index; trackBy: trackByItems"
+     [value]="val" (blinkerPos)="getLeftOffset($event)"> </typer-unit>
+
+ ###########
+
+   <li *ngFor="let product of products">
+         <p>{{product.id}}</p>
+         <h5>{{product.price}}</h5>
+         <img src="{{product.imageUrl}}" height="100px" width="100px" />
+   </li>
   
   
 2.ngIf  

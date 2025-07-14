@@ -1,3 +1,7 @@
+  
+  border: 1px solid linear-gradient(to right, blue, red)
+
+  
   1.circle-progress (A)
   <div class="widgets">
     <div class="progress-bg">
@@ -121,3 +125,8 @@ with css -
   }
 https://stackoverflow.com/questions/62682521/by-first-click-select-div-and-unselect-others-by-second-click-on-the-same-div-u
 
+
+6.Progress tag
+<progress value="63" max="100"></progress>
+
+7.
