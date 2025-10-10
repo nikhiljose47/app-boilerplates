@@ -1,5 +1,8 @@
 Secure, Scalable, Performance, 
 
+Coding problems
+Own fusion state management
+---
 Matrices  
 Physics  
 Nvidia R&D  
