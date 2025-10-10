@@ -1,7 +1,7 @@
 Secure, Scalable, Performance, 
 
-Coding problems
-Own fusion state management
+Coding problems  
+Own fusion state management  
 
 ---
 Matrices  
