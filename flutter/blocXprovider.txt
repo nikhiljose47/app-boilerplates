@@ -1,0 +1,24 @@
+| **Aspect / Function**                | **BLoC (Business Logic Component)**                                           | **Provider**                                                           |
+| :----------------------------------- | :---------------------------------------------------------------------------- | :--------------------------------------------------------------------- |
+| **Core Concept**                     | Separation of business logic and UI using reactive streams.                   | State management using ChangeNotifier and reactive widget rebuilding.  |
+| **Primary Classes Used**             | `Bloc`, `Cubit`, `Stream`, `StreamController`, `BlocBuilder`, `BlocProvider`. | `ChangeNotifier`, `ChangeNotifierProvider`, `Consumer`, `Provider.of`. |
+| **State Flow Direction**             | One-way: **Event → BLoC → State → UI**                                        | Two-way: **State ↔ UI** (direct mutation and rebuild).                 |
+| **Communication Mechanism**          | **Streams** (async data pipelines).                                           | **Listeners** (observer pattern).                                      |
+| **Data Flow Type**                   | Reactive (push-based).                                                        | Reactive (notify-based).                                               |
+| **How UI Updates**                   | Emits new `State` via Stream → `BlocBuilder` rebuilds UI.                     | Calls `notifyListeners()` → `Consumer` or `Selector` rebuilds UI.      |
+| **Event Handling**                   | Explicit `Event` classes trigger logic.                                       | Direct method calls (e.g. `provider.increment()`).                     |
+| **Async Handling**                   | Built-in via Streams or RxDart (very strong).                                 | Uses `Future` / `async` / `await` inside provider methods.             |
+| **Dependency Injection**             | Via `BlocProvider` (context-level).                                           | Via `Provider` family (`Provider`, `ChangeNotifierProvider`, etc.).    |
+| **Boilerplate**                      | Higher (needs Events, States, BLoC classes).                                  | Lower (few lines with ChangeNotifier).                                 |
+| **Ease of Debugging**                | Good with event–state tracking logs.                                          | Simple but less structured logging.                                    |
+| **Testability**                      | Excellent (pure input–output testing possible).                               | Good (requires widget + provider testing).                             |
+| **Performance**                      | High (controlled stream updates).                                             | High (rebuilds only listening widgets).                                |
+| **Learning Curve**                   | Moderate to steep.                                                            | Easy to moderate.                                                      |
+| **Best Use Case**                    | Enterprise apps, complex workflows, layered architecture.                     | Simple or medium apps, quick prototypes.                               |
+| **Integration with Flutter Widgets** | Uses `BlocBuilder`, `BlocListener`, `BlocConsumer`.                           | Uses `Consumer`, `Selector`, `Provider.of`.                            |
+| **Data Persistence**                 | Typically manual (or combined with repository).                               | Can persist in Provider manually or with external libs.                |
+| **Third-party Library**              | `flutter_bloc` package (by Felix Angelov).                                    | `provider` package (by Remi Rousselet).                                |
+| **UI-Logic Separation Level**        | Very high (UI unaware of logic).                                              | Moderate (UI can call logic methods).                                  |
+| **Error Handling**                   | Stream-based (`onError`, `BlocObserver`).                                     | Try–catch in methods.                                                  |
+| **Hot Reload Behavior**              | Retains stream data if not disposed.                                          | Retains ChangeNotifier instance if scoped properly.                    |
+| **Extensibility**                    | Scales easily for large architectures.                                        | Simple for small to mid-scale apps.                                    |

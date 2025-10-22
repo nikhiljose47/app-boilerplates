@@ -1,0 +1,28 @@
+1.Routing
+import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class NavigationService {
+  constructor(private router: Router) {}
+
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+}
+
+2.Http
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({ providedIn: 'root' })
+export class ApiService {
+  constructor(private http: HttpClient) {}
+
+  getUsers() {
+    return this.http.get('/api/users');
+  }
+}
+
+
+3.

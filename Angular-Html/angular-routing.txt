@@ -1,0 +1,14 @@
+
+
+1.Bootstrap
+2. Define routes
+3. Client
+
+    <nav>
+      <a routerLink="/user-profile">User profile</a>
+      <a routerLink="/settings">Settings</a>
+    </nav>
+  `
+  imports: [RouterLink],
+
+  

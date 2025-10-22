@@ -1,0 +1,80 @@
+1.Intialize
+BlocProvider VS 
+BlocProvider(
+    create: (context) => HomeBloc(),
+ .....
+)
+
+
+2.Manager 
+
+2.1 Home Event
+part of 'home_bloc.dart';
+
+/// Base class for all events related to the Home feature.
+/// This class is immutable and sealed, meaning no other classes
+/// can extend it outside of this file.
+@immutable
+sealed class HomeEvent {}
+
+/// Event triggered when the counter increment button is pressed.
+/// This extends the base `HomeEvent` class.
+class CounterIncrementPressed extends HomeEvent {
+  final int counter;
+  CounterIncrementPressed({required this.counter});
+}
+
+2.2
+part 'home_event.dart';
+part 'home_state.dart';
+
+// The HomeBloc class extends Bloc and manages the state of the application
+class HomeBloc extends Bloc<HomeEvent, CounterState> {
+  // Constructor initializes the bloc with an initial state
+  HomeBloc() : super(CounterState( counter: 0)) {
+    // Specific event handler for CounterIncrementPressed
+    on<CounterIncrementPressed>((event, emit) {
+      // Emits a new CounterState with the incremented counter value
+      emit(CounterState(counter: event.counter + 1));
+    });
+  }
+}
+
+2.3 Home State
+@immutable
+sealed class HomeState {}
+
+/// Initial state of the Home feature.
+/// Represents the default state when no specific state is set.
+final class HomeInitial extends HomeState {}
+
+/// State representing the counter value.
+/// Extends [HomeInitial] and holds the current counter value.
+final class CounterState extends HomeInitial {
+  /// The current value of the counter.
+  final int counter;
+
+  /// Constructor for [CounterState].
+  /// Requires the [counter] value to be provided.
+  CounterState({required this.counter});
+}
+
+
+3.Build function
+BlocBuilder - for update exacty on change.
+
+  final HomeBloc counterBloc = BlocProvider.of<HomeBloc>(context);
+
+    return BlocBuilder<HomeBloc, CounterState>( // Rebuilding the UI based on the current state of HomeBloc
+      builder: (context, state) {
+        return Scaffold(
+            child: Text('Counter: ${state.counter}',  // Displaying the current counter value
+          ), 
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              counterBloc.add(CounterIncrementPressed(counter: state.counter));  // Dispatching an event to increment the counter
+            },
+          ),
+        );
+      },
+    );
