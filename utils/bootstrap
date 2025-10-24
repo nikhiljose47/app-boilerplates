@@ -1,0 +1,59 @@
+1.Bootstrap structure ?
+Container → Row → Column → Content
+
+2.Grid system
+Every .row is divided into 12 parts.
+
+3.Sizes
+| Class     | Breakpoint | Example    |
+| --------- | ---------- | ---------- |
+| `col-sm-` | ≥576px     | `col-sm-6` |
+| `col-md-` | ≥768px     | `col-md-4` |
+| `col-lg-` | ≥992px     | `col-lg-3` |
+| `col-xl-` | ≥1200px    | `col-xl-2` |
+
+
+Spacing utils 
+<div class="pt-3">Padding Top</div>
+<div class="mb-2">Margin Bottom</div>
+<div class="mx-auto">Centered horizontally</div>
+
+
+Text
+<p class="text-center">Centered text</p>
+<p class="fw-bold">Bold text</p>
+<p class="text-success">Green text</p>
+<p class="text-danger">Red text</p>
+<p class="text-truncate" style="max-width: 200px"></p>   // Text truncate
+
+
+Colors
+<div class="bg-primary text-white p-3">Blue background</div>
+<div class="bg-light text-dark p-3">Light gray background</div>
+
+
+Buttons
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-outline-success">Outline</button>
+
+
+Cards
+// Good example
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Title</h5>
+    <p class="card-text">Description here.</p>
+    <a href="#" class="btn btn-primary">Go</a>
+  </div>
+</div>
+
+
+Navbar
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">MyApp</a>
+</nav>
+
+
+Rsponsive
+<div class="d-none d-md-block">Visible on desktop</div>
+<div class="d-block d-md-none">Visible on mobile</div>
