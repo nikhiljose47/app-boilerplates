@@ -1,10 +1,11 @@
-
+flows
 
 
 
 Oct 24 of 25
+Dummy guest/user state using ngRx 3pm /
 Zero - V1 of OMJ App
-V1 - V2 of OMJ App
-
+V1 - V2 of OMJ App 
+ 
 Oct 23 of 25
 Created - Zero to Expense Tracker app : 
