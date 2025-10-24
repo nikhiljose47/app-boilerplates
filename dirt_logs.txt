@@ -1,6 +1,10 @@
 flows
 
+OJM - flows| Days
 
+Solution on user/guest river (1)(1)
+Problems river
+Basic DB & UI river
 
 Oct 24 of 25
 Dummy guest/user state using ngRx 3pm /
