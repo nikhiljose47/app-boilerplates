@@ -1,0 +1,65 @@
+Flutter Side && Native Side
+
+Channel types - 1.MethodChannel (1 time)  2.EventChannel (Stream) 3.BasicMessageChannel (Bi)
+
+Why? - Platform channels let you write custom behavior.
+
+
+Flutter Side
+
+import 'package:flutter/services.dart';
+
+class BatteryAccessor {
+  static const MethodChannel _channel = MethodChannel('com.example/native');
+
+  static Future<String> getBatteryLevel() async {
+    final String result = await _channel.invokeMethod('getBatteryLevel');
+    return result;
+  }
+}
+
+
+Native Side - Kotlin
+
+package com.example.app
+
+import android.os.BatteryManager
+import android.content.Context
+import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugin.common.MethodChannel
+
+class MainActivity: FlutterActivity() {
+
+    private val CHANNEL = "com.example/native"
+
+    override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
+        super.configureFlutterEngine(flutterEngine)
+
+        MethodChannel(
+            flutterEngine.dartExecutor.binaryMessenger,
+            CHANNEL
+        ).setMethodCallHandler { call, result ->
+
+            if (call.method == "getBatteryLevel") {
+                val batteryLevel = getBatteryLevel()
+
+                if (batteryLevel != -1) {
+                    result.success("Battery Level: $batteryLevel%")
+                } else {
+                    result.error("UNAVAILABLE", "Battery info unavailable", null)
+                }
+
+            } else {
+                result.notImplemented()
+            }
+        }
+    }
+
+    private fun getBatteryLevel(): Int {
+        val batteryManager = getSystemService(Context.BATTERY_SERVICE) as BatteryManager
+        return batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY)
+    }
+}
+
+

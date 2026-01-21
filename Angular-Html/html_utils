@@ -1,17 +1,16 @@
-  
-  border: 1px solid linear-gradient(to right, blue, red)
+border: 1px solid linear-gradient(to right, blue, red)
 
-  
-  1.circle-progress (A)
-  <div class="widgets">
-    <div class="progress-bg">
-      <span id="progress-label">{{timer}}<span id="progress-label-sub">sec</span></span>
-    </div>
-    <mat-progress-spinner [color]="progressColor" [diameter]="170" [strokeWidth]="9" [mode]="'determinate'"
-      [value]="progressLabel">
-    </mat-progress-spinner>
-    
-.progress-bg {
+
+1.circle-progress (A)
+<div class="widgets">
+  <div class="progress-bg">
+    <span id="progress-label">{{timer}}<span id="progress-label-sub">sec</span></span>
+  </div>
+  <mat-progress-spinner [color]="progressColor" [diameter]="170" [strokeWidth]="9" [mode]="'determinate'"
+    [value]="progressLabel">
+  </mat-progress-spinner>
+
+  .progress-bg {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -23,110 +22,110 @@
   width: 9.5rem;
   border-radius: 50%;
   background-color: rgb(239, 242, 239);
-  box-shadow:  1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-}
+  box-shadow: 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
 
-#progress-label{
+  #progress-label{
   padding-top: 18px;
   padding-left: 11px;
   font-size: 4rem;
   color: rgb(3, 3, 3);
-}
+  }
 
-#progress-label-sub{
+  #progress-label-sub{
   font-size: 1rem;
-}
+  }
 
 
 
-2.Image(2)
-<img src="/assets/images/mygif.gif" />
+  2.Image(2)
+  <img src="/assets/images/mygif.gif" />
 
-with css -
-#bg{
-    width: 100%;
-    height: 100%;
-    background-image: url("../../assets/bg-stripes.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+  with css -
+  #bg{
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/bg-stripes.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  }
 
 
-3.Basic card
-<div class="card">
-  <img src="img_avatar.png" alt="Avatar" style="width:100%">
-  <div class="container">
-    <h4><b>John Doe</b></h4>
-    <p>Architect & Engineer</p>
+  3.Basic card
+  <div class="card">
+    <img src="img_avatar.png" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>John Doe</b></h4>
+      <p>Architect & Engineer</p>
+    </div>
   </div>
-</div>
-//requie: Add css only
-.card{
-    background-color: rgb(255, 248, 248);
-    width: 40%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    max-width: 30rem;
-    padding: 2%;
-    border-radius: 9px;
-    transition: 0.3s;
-}
-.card:hover {
+  //requie: Add css only
+  .card{
+  background-color: rgb(255, 248, 248);
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  max-width: 30rem;
+  padding: 2%;
+  border-radius: 9px;
+  transition: 0.3s;
+  }
+  .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-.container {
+  }
+  .container {
   padding: 2px 16px;
-}
+  }
 
-4.Drop down
-    <select name="ms">    
-        <option value="-1" selected="false"  >any</option>
-        <option value="0" selected>only single</option>
-        <option value="1">only married</option>
-    </select>
+  4.Drop down
+  <select name="ms">
+    <option value="-1" selected="false">any</option>
+    <option value="0" selected>only single</option>
+    <option value="1">only married</option>
+  </select>
 
-4.Horizontal layout
-<div id="container">
+  4.Horizontal layout
+  <div id="container">
     <div id="left">Left Side Menu</div>
     <div id="middle">Random Content</div>
     <div id="right">Right Side Menu</div>
-</div>
-#container {height: 100%; width:100%; display:flex; vertical-align: top;}
-#left {width: 25%; background: blue;}
-#middle {width: 50%; background: green;}
-#right {width: 25%; background: yellow;}
+  </div>
+  #container {height: 100%; width:100%; display:flex; vertical-align: top;}
+  #left {width: 25%; background: blue;}
+  #middle {width: 50%; background: green;}
+  #right {width: 25%; background: yellow;}
 
 
-5.Select one with unselect others/ Drop down 2
-//css
-.dropdown-content {
+  5.Select one with unselect others/ Drop down 2
+  //css
+  .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 140px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-.show {
+  }
+  .show {
   display: block;
-}
-//html
-<a (click)="openDropDown()" (pointerleave)="closeDropDown()" ></a>
+  }
+  //html
+  <a (click)="openDropDown()" (pointerleave)="closeDropDown()"></a>
   <div id="myDropdown" class="dropdown-content">
-        <a routerLink="/game-two">Ghost</a>
-        <a routerLink="/game-three">Follow</a>
+    <a routerLink="/game-two">Ghost</a>
+    <a routerLink="/game-three">Follow</a>
   </div>
-//ts    
+  //ts
   openDropDown() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("myDropdown").classList.toggle("show");
   }
   closeDropDown() {
-    var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
+  var myDropdown = document.getElementById("myDropdown");
+  if (myDropdown.classList.contains('show')) {
+  myDropdown.classList.remove('show');
   }
-https://stackoverflow.com/questions/62682521/by-first-click-select-div-and-unselect-others-by-second-click-on-the-same-div-u
+  https://stackoverflow.com/questions/62682521/by-first-click-select-div-and-unselect-others-by-second-click-on-the-same-div-u
 
 
-6.Progress tag
-<progress value="63" max="100"></progress>
+  6.Progress tag
+  <progress value="63" max="100"></progress>
 
-7.
+  7.

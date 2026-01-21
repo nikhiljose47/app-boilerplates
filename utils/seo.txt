@@ -1,0 +1,70 @@
+
+1.Add meta and tags
+
+
+
+2.Ensure app is crawlable
+def - lets see google ur html before scrpt runs
+
+#Angular
+Use angular universal / SSR
+
+
+
+3.Add a sitemap
+
+
+4.Addd robots.txt
+
+
+
+5.No bad performance of loaders and errors
+
+
+6.Use semantic and semantic html
+<header></header>
+<nav></nav>
+<main></main>
+<footer></footer>
+
+
+
+7.Meaningful URL's 
+{ path: 'shop/handmade-soaps', component: ShopComponent }
+
+
+
+8.Use canonical URL'saving
+to avaoid duplicate pages
+this.meta.updateTag({ rel: 'canonical', href: 'https://yourdomain.com/home' });
+
+
+
+9.Add open graph & twitter meta tags
+Helps with link previews on social media:
+
+this.meta.addTags([
+  { property: 'og:title', content: 'Handmade Soaps' },
+  { property: 'og:description', content: 'Natural soaps with essential oils.' },
+  { property: 'og:image', content: 'https://yourdomain.com/assets/soap.webp' },
+  { name: 'twitter:card', content: 'summary_large_image' }
+]);
+
+
+
+
+10.Add G analytics/Search console
+Add your site to Google Search Console and verify it.
+<!-- In index.html -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXX');
+</script>
+
+
+#
+Angular
+Use ngx-meta or Angular SEO tools for easier meta management.

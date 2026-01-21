@@ -1,0 +1,46 @@
+An API Factory is a single place that creates and returns API-related objects (URLs, clients, configs) based on 
+environment and rules, instead of hardcoding them everywhere.
+
+It “manufactures” API endpoints or API clients on demand.
+
+Schema : 
+    Environment config
+        ↓
+    API Factory
+        ↓
+  API endpoints / clients
+        ↓
+   Services / Features
+
+/// Class ApiEndpointRegistry
+
+class ApiEndpointRegistry {
+  private endpoints = new Map<string, string>();
+
+  add(key: string, url: string) {
+    this.endpoints.set(key, url);
+  }
+
+  get(key: string): string {
+    if (!this.endpoints.has(key)) {
+      throw new Error(`API not found: ${key}`);
+    }
+    return this.endpoints.get(key)!;
+  }
+}
+
+export const ApiFactory = (env) => {
+  const registry = new ApiEndpointRegistry();
+
+  registry.add('login', `${env.BASE_URL}/v1/login`);
+  registry.add('orders', `${env.NODE_URL}/v2/orders`);
+
+  return registry;
+};
+
+Usage: 
+const api = ApiFactory(environment);
+http.post(api.get('login'), payload);
+
+
+

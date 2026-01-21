@@ -1,0 +1,20 @@
+
+1.
+Package
+"@angular/fire"  & npm i @ngrx/store 
+
+2.
+Environment configuration - app/environments/environment.prod.ts
+- Wrap with = export const evironment = {};
+
+3.
+Strap - provide firebaseapp, auth, storage, firestore
+
+
+4.
+Copy Services - fire.service.ts
+
+
+
+
+

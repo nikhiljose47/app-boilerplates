@@ -1,0 +1,16 @@
+
+
+Each thread has: Its own stack, program counter, register set
+
+All threads in a process share:
+1.Code (text segment)
+2.Heap
+3.Global variables
+4.Open files
+
+
+OS scheduler - 
+A.Picks a runnable thread
+B.Gives it CPU for a time slice
+C.Saves context
+D.Switches to another thread, All => This is context switching.

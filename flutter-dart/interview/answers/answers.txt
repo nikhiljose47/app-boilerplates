@@ -1,0 +1,215 @@
+8. What is MaterialApp vs WidgetsApp?
+WidgetApp = Parent of Material App, So abstract & we can customize - Use it we need custom design system
+Material app - uses Google designs, styles, Cupurtino App
+
+9. What is Scaffold?
+
+13. Types of ListViews. - .builder, .seperated, .custom
+
+
+36. What is InheritedWidget? (Use cases)
+
+InheritedWidget is a Flutter mechanism to efficiently share data down the widget tree without passing it manually through constructors.
+Normally, if a parent widget has data, every child must receive it via parameters. InheritedWidget avoids this by making data available to all descendants.
+
+
+How?
+Uses the default buildcontext to locate the top ancestor and get 
+
+Schema: 
+Widget = 
+class AuthInherited extends InheritedWidget {
+  final bool isAuthenticated;
+
+  const AuthInherited({
+    required this.isAuthenticated,
+    required Widget child,
+    super.key,
+  }) : super(child: child);
+
+  static AuthInherited of(BuildContext context) {
+    final AuthInherited? result =
+        context.dependOnInheritedWidgetOfExactType<AuthInherited>();
+    assert(result != null, 'No AuthInherited found in context');
+    return result!;
+  }
+
+  @override
+  bool updateShouldNotify(AuthInherited oldWidget) {  //We can manage update by updateShouldNotify
+    return isAuthenticated != oldWidget.isAuthenticated;
+  }
+}
+
+
+Usage
+final isAuth = AuthInherited.of(context).isAuthenticated; === context.dependOnInheritedWidgetOfExactType<AuthInherited>();
+
+
+We will put state in top widget and we will access it with build context's prop called dependOnInheritedWidgetOfExactType
+The entire mechanism is build to work with support of already inplace buildcontext.
+Flutter internally uses InheritedWidget for: Theme, MediaQuery, Navigator, etc - So we can - Auth, App config.
+
+Why Angular can store state in class and ...?
+Angular uses global dependency injection (DI) (tied with change detection) Vs Flutter uses the widget tree + BuildContext. 
+==> In Flutter state must always live inside the widget tree to trigger UI updates.
+
+
+So, Provider is a wrapper around InheritedWidget, designed to make it easier and safer to use.
+Widgets call context.watch() or context.read()
+Without Provider, using InheritedWidget directly is verbose and error-prone.
+
+What are ChangeNotifier and ValueNotifier? - Both are simple observable classes used for state management.
+
+ChangeNotifier - A class that holds state
+Calls notifyListeners() when state changes
+
+Widgets listening to it rebuild
+
+class Counter extends ChangeNotifier {
+  int value = 0;
+
+  void increment() {
+    value++;
+    notifyListeners();
+  }
+}
+
+ValueNotifier - A specialized version of ChangeNotifier
+
+Use cases:
+Toggles
+Simple flags
+Small, isolated state
+Relationship between all three
+
+InheritedWidget → low-level data propagation
+Provider → developer-friendly wrapper over InheritedWidget
+ChangeNotifier / ValueNotifier → state objects exposed via Provider
+
+Typical pattern
+ChangeNotifier → Provider → InheritedWidget → Widget tre
+
+43. What is responsive UI in Flutter? - MediaQuery, LayoutBuilder, Expanded and Flexible, OrientationBuilder, AspectRatio
+61. SOLID principles in Flutter.
+    Single, Open, Liskov Sub, Interface segregation, Dep Inversion
+62. Explain Clean Architecture in Flutter.
+    Presentation, Domain, Data Layer
+
+
+Interceptor 
+By Dio, By http_interceprot (all are 3rd party)
+
+Example - 
+import 'package:dio/dio.dart';
+class TokenRefreshInterceptor extends Interceptor {
+  final Dio dio;
+
+  TokenRefreshInterceptor(this.dio);
+
+  @override
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
+    if (err.response?.statusCode == 401) {
+      try {
+        final newToken = await refreshToken();
+
+        err.requestOptions.headers['Authorization'] =
+            'Bearer $newToken';
+
+        final response = await dio.fetch(err.requestOptions);
+        return handler.resolve(response);
+      } catch (e) {
+        return handler.next(err);
+      }
+    }
+
+    return handler.next(err);
+  }
+}
+
+Register - 
+final dio = Dio();
+
+dio.interceptors.add(
+  TokenRefreshInterceptor(dio),
+);
+
+final response = await dio.fetch(err.requestOptions);
+
+
+runZonedGuarded<R> function - 
+Central/One place logging of all async errors.
+Last hope/Critical for production debugging.
+Details - Stack traces, Device info, OS&App Versions, Crash grouping, 
+
+
+try-catch fail case: (if we not use await)
+try {
+  Timer(Duration(seconds: 1), () {   //Timer runs outside the current stack 
+    throw Exception('Error');
+  });
+} catch (e) {
+  print(e);
+}
+
+
+Schema: 
+runZonedGuarded(() {
+  runApp(MyApp());
+}, (error, stackTrace) {
+     //A usage of Firebase crashalytics service here.
+    FirebaseCrashlytics.instance.recordError(error, stack);  // log error
+});
+
+Another person: 
+Global error handling.
+
+
+Articulate
+1.How Interviewers Evaluate Your Answers
+Internals clarity (engine + framework)
+Performance reasoning, not syntax
+
+Trade-off thinking, not “best practice” parroting
+
+Real-world scale experience
+
+Flawless Communication 
+
+
+
+FlutterError - 
+To get any flutter framework error on running. //rare-case
+
+FlutterError.onError = (details) {
+  FirebaseCrashlytics.instance.recordFlutterError(details);  //Flutter framework / build / render errors
+}; 
+
+
+Bargain -
+Industry standards, currenlty i have low.
+Freshers in same role getting 18LPA, I am not asking any more, i am asking is normalized.
+
+
+How do you fetch data from REST API in Flutter? - 
+REST API data is commonly fetched using either the http package or the dio package, depending on complexity & req.
+
+Main differences observed:
+Dio has typed response (unlike string), self catch all exception (unlike each if-else check),
+got interceptor and retry/timeout support.
+
+| Aspect                 | `http` package (`Response`) | `Dio` package (`Response<T>`) | Comments                                         |
+| ---------------------- | --------------------------- | ----------------------------- | ------------------------------------------------ |
+| Response Type          | `Response`                  | `Response<T>`                 | Dio is generic and supports typed responses      |
+| Response Body          | `String body`               | `T data`                      | http returns raw string; Dio returns parsed data |
+| JSON Parsing           | Manual (`jsonDecode`)       | Automatic                     | Dio parses JSON internally                       |
+| Status Code            | `int statusCode`            | `int? statusCode`             | Both provide HTTP status                         |
+| Status Message         | ❌ Not available             | `String? statusMessage`       | Dio exposes HTTP status text                     |
+| Headers                | `Map<String, String>`       | `Headers`                     | Dio provides richer header APIs                  |
+| Request Info           | ❌ Not available             | `RequestOptions`              | Dio retains original request metadata            |
+| Redirect Info          | `bool isRedirect`           | `bool isRedirect`             | Available in both                                |
+| Error Handling         | Manual checks               | `DioError` / `DioException`   | Dio supports centralized error handling          |
+| Interceptors           | ❌ Not supported             | ✅ Supported                   | Key advantage of Dio                             |
+| Timeout / Retry        | Manual                      | Built-in                      | Dio supports advanced configs                    |
+| File Upload / Download | Basic                       | Advanced                      | Dio handles multipart and progress easily        |
+| Enterprise Usage       | ❌ Limited                   | ✅ Preferred                   | Dio scales better for large apps                 |
+

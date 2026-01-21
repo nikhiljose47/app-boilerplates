@@ -1,0 +1,76 @@
+0.
+Component named UserProfile has a file name user-profile.ts.
+
+src = All UI codes
+outside src = Config files or scripts.
+
+
+Data Types
+use protected for members only by its own component.
+
+
+1.Image loading
+Angular.json - "src/assets"
+<img src="assets/abbu.jpg" />
+
+
+1.Adding/Calling child components
+ 
+ export class CustomPopup {
+  @Input() title: string = 'Popup Title';
+  @Output() onClose = new EventEmitter<void>();
+  @Input() onAction?: () => void; // callback function from parent
+
+  handleAction() {
+    if (this.onAction) this.onAction();
+  }
+
+  close() {
+    this.onClose.emit();
+  }
+}
+
+
+Use as - {{title}}, 
+ <button (click)="close()">Close</button>
+ <button (click)="handleAction()">Confirm</button>
+
+Parent component - 
+  <custom-popup [title]="'Guest mode on'" [onAction]="onActionClick.bind(this)" (onClose)="showPopup = false">
+    <p>Please login to add a solution of yours.</p>
+  </custom-popup>
+
+
+2.Interpolation - tells angular to evaluate the expressionute and put to tag
+{{ user.firstName + ' ' + user.lastName }}
+
+3.
+A.Responsives
+With breakpointobserver : https://blog.angular-university.io/angular-responsive-design/
+
+
+1.ngFor
+ typerUnits: TyperUnit[] = []; 
+ trackByItems(index: number, item: TyperUnit): number {
+    return item.state;
+  }
+
+  @Input() value: TyperUnit;
+  @Output() blinkerPos = new EventEmitter<number>();
+
+  <typer-unit class="typer" *ngFor="let val of typerUnits; let i = index; trackBy: trackByItems"
+     [value]="val" (blinkerPos)="getLeftOffset($event)"> </typer-unit>
+
+ ###########
+
+   <li *ngFor="let product of products">
+         <p>{{product.id}}</p>
+         <h5>{{product.price}}</h5>
+         <img src="{{product.imageUrl}}" height="100px" width="100px" />
+   </li>
+  
+  
+2.ngIf  
+ <div *ngIf="this.data.compWin; else elseBlock">  </div>
+ <ng-template #elseBlock>  </ng-template>
+  

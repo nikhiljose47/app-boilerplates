@@ -1,0 +1,4 @@
+
+
+1.What are inline and block elements in html?
+2.Why use of resolver?

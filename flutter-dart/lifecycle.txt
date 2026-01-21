@@ -1,0 +1,20 @@
+
+
+
+initState(): 
+Called once when the State object is first created. This is where you initialize state variables and subscribe to streams or other external resources.
+
+didChangeDependencies(): 
+Called immediately after initState() and whenever the dependencies of the State object change (e.g., when an InheritedWidget it depends on changes).
+
+build(): 
+Called to build the UI of the widget. This method can be called multiple times during the widget's lifetime.
+
+didUpdateWidget(covariant T oldWidget): 
+Called when the widget associated with this State object changes. It receives the old widget as an argument, allowing you to compare properties and update the state accordingly.
+
+deactivate(): 
+Called when the State object is removed from the widget tree, but potentially reinserted later (e.g., due to a GlobalKey causing it to be moved).
+
+dispose(): 
+Called when the State object is permanently removed from the widget tree. This is where you should clean up resources, cancel subscriptions, and dispose of controllers to prevent memory leaks.

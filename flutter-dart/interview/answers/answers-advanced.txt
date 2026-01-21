@@ -1,0 +1,69 @@
+For any framework, architecture explains: / how frameworks are checked/performance
+Between blocks/global - data flow, Change detection mechanism 
+Its rendering technique
+Extra - Platfrom inetgration system
+
+
+Flutter working
+
+1.Create widget tree 
+(Para)2.Create an element tree for each/reuse  - Have buildcontext, Compare old vs new widgets (Perfo starts)
+(Para)3.Create renderObject(Parent of container/cards) Tree - Have sizes, how to paint //Dart work is done  //Real heavy work
+4.Do layouting and some updates and create paint commands from RenderObjects 
+5.Converts paint commands set/layer into Skia commands (C++).
+(outside)
+6.Skia convert commands(from flutter) to platform GPU commands (via OS)
+
+Note: Rebuilding widgets ≠ repainting (Element decides)
+
+So Flutter Layered/Layers (as usual) = Framework layer(Dart widgets), C++ Engine layer, Embedder layer, Skia layer
+
+Schema -
+Widgets → Elements → RenderObjects
+       ↓
+   Layer Tree
+       ↓
+   Flutter Engine
+       ↓
+      Skia
+       ↓
+     Screen
+
+
+Why this? No platform/JS brigde/Same UI on all platforms as same code && Flutter rendering done by own engine (Angular by broswer DOM)
+
+Skia, an Open-source 2D graphics library (a mediator b/w real GPU & i/p commands)
+Convert them into:
+OpenGL commands (Android)
+Metal commands (iOS)
+Vulkan commands (newer Android)
+DirectX commands (Windows)
+
+
+
+
+Event loop flutter
+
+Events - Synchronous, Async, microtasks to do continous and while loop (till end of app) ~A schdeuler?
+
+Requisites:
+1.OS - Process Scheduling
+2.OS = shedule threads
+
+Flutter = 1 process with threads - 
+ UI Thread      -> Runs Dart code + widget build    // Dart code only runs on UI thread(unless you spawn isolates)
+ Raster Thread  -> Converts UI to pixels (GPU work) 
+ IO Thread      -> File, network, image decode      
+ Worker Threads -> Background native work         
+ Other..
+
+
+Schema: 
+ while (app is running) { //  A single while loop
+  run synchronous code
+  run microtasks        //high priority to do next or internal like notifyListeners, ui update code
+  run async callbacks   //body in timer/future or .then are callbacks which run after future/timer completes
+}
+
+
+

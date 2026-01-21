@@ -1,0 +1,31 @@
+
+Service - Set - Get
+
+@Injectable({ providedIn: 'root' })
+export class FireCacheStore {
+  private classCache = signal<Record<string, any>>({});
+
+  get(id: string) {
+    return computed(() => this.classCache()[id]);
+  }
+
+  set(id: string, value: any) {
+    this.classCache.update(c => ({ ...c, [id]: value }));
+  }
+}
+
+
+
+Set to cache - 
+
+firestore.doc(id).get().then(doc => {
+  this.cacheStore.set(id, doc.data());
+});
+
+
+
+Get call -
+if (!cache.get(id)()) {
+  firestore.get(id).then(data => cache.set(id, data));
+}
+

@@ -1,0 +1,34 @@
+
+1. Small case Rxjs = signals  #Avoid boilerplates.
+  
+  count = signal(0);
+
+  // computed signal
+  doubleCount = computed(() => this.count() * 2);
+
+  increment() {
+    this.count.update(c => c + 1);
+  }
+
+
+2.Async pipe
+<span class="badge bg-info text-dark">
+      {{ (isGuestMode$ | async) ? 'Guest' : 'User' }}
+    </span>
+
+
+3. UI not updating  - 
+Import { BehaviorSubject } from “rxjs”;
+
+myData: BehaviourSubject<any[]> = new BehaviorSubject<any[]>([])
+
+*ngFor=“let data of myData | async”
+
+this.myData.next([ ...data ])
+
+
+
+4. UseEffect - Runs code automatically when signals change
+effect(() => {
+    console.log('Count changed:', this.count());
+  });

@@ -1,0 +1,78 @@
+
+
+Third parties : http,  dispose
+
+
+Gracefully? - Helper methods?
+
+
+Without helper method -- 
+
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
+Future<void> fetchPost() async {
+  try {
+    final response = await http
+        .get(Uri.parse("https://jsonplaceholder.typicode.com/posts/1"))
+        .timeout(const Duration(seconds: 8));
+
+    // 1. Handle network-level success/fail
+    if (response.statusCode == 200) {
+      try {
+        final data = jsonDecode(response.body);
+        print("Title: ${data['title']}");
+      } catch (e) {
+        print("❌ JSON Parsing Error: $e");
+      }
+    } 
+    else if (response.statusCode == 404) {
+      print("❌ Not Found (404)");
+    } 
+    else {
+      print("❌ Server Error: ${response.statusCode}");
+    }
+  }
+
+  // 2. Internet OFF / DNS error
+  catch (e) {
+    print("❌ Network Error: $e");
+  }
+}
+
+
+
+Helper 
+class ApiResult<T> {
+  final T? data;
+  final String? error;
+  final bool ok;
+
+  ApiResult.success(this.data)
+      : ok = true,
+        error = null;
+
+  ApiResult.failure(this.error)
+      : ok = false,
+        data = null;
+}
+
+
+
+With helper method -- 
+
+Future<ApiResult<Map<String, dynamic>>> fetchPost() async {
+  try {
+    final res = await http
+        .get(Uri.parse("https://jsonplaceholder.typicode.com/posts/1"))
+        .timeout(const Duration(seconds: 8));
+
+    if (res.statusCode == 200) {
+      return ApiResult.success(jsonDecode(res.body));
+    } else {
+      return ApiResult.failure("Server error: ${res.statusCode}");
+    }
+  } catch (e) {
+    return ApiResult.failure("Network error: $e");
+  }
+}

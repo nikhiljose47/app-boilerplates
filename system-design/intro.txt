@@ -1,0 +1,22 @@
+
+System design is the process of defining the architecture, components, data flow, and scalability of a software system 
+before implementation.
+
+
+Interview feel - https://www.reddit.com/r/InterviewCoderHQ/comments/1q8aohu/google_em_real_system_design_interview_experience/
+
+
+Roles of a system designer : Guy who does business req --> materialize report
+
+1.Problem Understanding & Requirement Analysis
+2.HLD
+3.Data & storage design
+4.API integration design
+5.Application & Code Architecture
+6.Performance & scalability planning
+7.Reliability, Fault Tolerance & Resilience
+8.Security & Compliance
+9.CI/CD & Deployment Strategy
+10.Documentation & Communication
+11.Collaboration & Technical Leadership - Close with stakeholder, Mentor, Lead tech discussions & design reviews.
+12.Continuous Improvement & Evolution - Review, Refactor & Updated on the architecture

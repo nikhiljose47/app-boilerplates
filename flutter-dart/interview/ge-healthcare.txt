@@ -1,0 +1,73 @@
+
+Intro
+At GE healthcare, we were design and developing a single consolidated package = contained 5 core features
+
+Initially i was involved in end-to-end in requirement discusssiouns and architecture designs on how to implement.
+
+The client requirement was to have a single Flutter package that could be imported into multiple applications and 
+provide ready-to-use UI widgets 
+
+Essentially = The consuming application did not handle any UI logic. Instead, it simply passed data and configuration to the 
+widget, and the package was responsible for rendering the complete UI on the app screen.The package handled business rules, 
+visual states, and layout selection internally.
+
+Other Requiremntn were - must highly configurable, not break the ui on configuration change, minimal state management, reusability,
+unit testung for each components, architect the classs so the it can easily maintained, perfomance check and report
+
+
+Major challenge was to put boundaries on developing each modules so that each developer must not afftec or change others.
+
+
+Basic schema: (of use)
+Inside package - 
+health_ui_package/
+ └── lib/
+     ├── health_ui_package.dart   // public API
+     ├── alarm/
+     │    └── alarm_banner.dart
+     ├── numerics/
+     │    ├── numerics_widget.dart
+     │    └── layouts/
+     │         ├── layout1.dart
+     │         └── layout2.dart
+     └── common/
+          └── models.dart
+
+
+A public api file to expose -
+library health_ui_package;
+
+export 'alarm/alarm_banner.dart';
+export 'numerics/numerics_widget.dart';
+export 'common/models.dart';
+
+3.Add dependency -
+dependencies:
+  health_ui_package:
+    git:
+      url: <repo-url>
+
+4.import 'package:health_ui_package/health_ui_package.dart';
+AlarmBanner(  //Use required package only
+  data: AlarmData(
+    message: 'High heart rate',
+    severity: AlarmSeverity.high,
+  ),
+  config: AlarmConfig(
+    showIcon: true,
+  ),
+)
+
+
+Socket data inetgratokn part 
+
+There was mock data which was common across to help in development
+
+Mock data was consolideated data which contains all the information at once, like numerics, waveform data, alarm data 
+
+We need to filter for numerics given thr parameter. 
+
+
+Numerics
+
+

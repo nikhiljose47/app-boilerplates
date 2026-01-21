@@ -1,0 +1,68 @@
+Linked list
+
+A.First write for empty case & return
+B.Traversal
+'Loops = 2'
+A guy to keep head
+A guy to do operation
+
+
+
+
+Flutter - 3.35 : 3.9
+
+A.Navigator : 
+
+ Navigator.push( context,
+    MaterialPageRoute<void>(
+      builder: (context) => const SecondRoute(),
+    ),
+  );
+
+
+B.StateFull : 
+
+class A extends StatefulWidget {
+  final String title;
+  final int count;
+
+  const A({super.key, required this.title, required this.count});
+
+  @override
+  State<A> createState() => _AState();
+}
+
+class _AState extends State<A> {}  (R)
+
+
+C.Dart updates
+Null safety (2.12), Extension methods (2.5), Sound typing (2.0), Records & Patterns (3.0), Macros (3.4).
+
+
+D.Delay 
+await Future.delayed(const Duration(seconds: 3));
+Vs.
+Timer(const Duration(seconds: 3), () {
+  print('Triggered after 3 seconds');
+});
+Timer.periodic(const Duration(seconds: 2), (timer) {
+  print('Repeating every 2 seconds');
+
+  if (timer.tick == 3) timer.cancel();
+});
+
+1.Map = I/p data transform --> New One for class.  For each = Diff operations inside class (R)
+
+var doubled = numbers.map((n) => n * 2).toList();
+
+// forEach → just loops, no return/return void
+numbers.forEach((n) { print(n * 2); });
+
+
+2.Debounce
+
+
+3.Mixins
+
+
+4.Inherited Widget

@@ -1,0 +1,22 @@
+Clean Architecture is an app structure pattern that separates your code into independent, testable layers so UI, 
+business logic, and data are not tightly coupled.
+
+It makes large Flutter apps scalable, maintainable, and easy
+
+
+ ┌────────────────────┐
+ │    PRESENTATION    │  UI + State (e.g., Bloc/Riverpod)
+ └──────────▲─────────┘
+            │
+ ┌──────────┴─────────┐
+ │     DOMAIN          │  Entities + Use Cases + Abstract Repos
+ └──────────▲─────────┘
+            │
+ ┌──────────┴─────────┐
+ │     DATA            │  API/Firestore/SQLite implementations
+ └────────────────────┘
+
+
+Domain Layer should be pure ?
+
+

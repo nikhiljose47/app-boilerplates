@@ -1,0 +1,15 @@
+
+Completed - 4th 
+
+1.Deep understanding of widget lifecycle, rendering pipeline, layout & painting, async programming, and isolates.
+2.Expertise in state management — Bloc, Cubit, Riverpod, Provider.
+3.Strong architectural knowledge — Clean Architecture, MVVM, feature-first structures.
+4.Advanced networking experience — REST, GraphQL, WebSockets, retry logic, caching.
+5.Experience with local storage solutions and offline-first implementation. - Hive, SQLite
+6.Proficiency in profiling, debugging, and performance optimization.
+7.Hands-on experience with CI/CD, analytics, and crash reporting tools.
+8.Comfortable working with method channels, Swift/Kotlin integrations, and native modules.
+9.roven leadership experience guiding 2–3 engineers.
+10.Strong ownership mindset with the ability to independently deliver end-to-end features.
+
+NodeJS

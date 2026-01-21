@@ -1,0 +1,14 @@
+
+Cases - 1.App Restart = Data Gone  2.
+Session DB
+
+
+
+
+Resolver 
+When page need mandatory data.
+ex: Data page, Edit user with forms,
+
+If err => Redirect->No data/Back to home/Err, Load with dummy
+
+Without resolver - unncessary component loads with all calls, stuck in loader page

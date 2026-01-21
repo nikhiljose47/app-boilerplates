@@ -1,0 +1,67 @@
+
+3.What is interceptor?
+
+63. Explain Flutter engine architecture.
+1.Explain Flutter’s rendering pipeline end-to-end (Framework → Engine → Skia). 
+Where do widgets, elements, and render objects fit?
+
+
+65. What is Layer Tree vs Render Tree?
+66. Flutter frame rendering pipeline (vsync → build → layout → paint → composite → rasterize).
+
+67. Garbage collection in Dart.
+98. Memory leaks in Flutter — detection + prevention.
+
+68. How async runtime works (Event Loop, Microtask Queue).
+
+70. AOT vs JIT in Flutter.
+
+71. Platform channels — method channels, event channels, basic message channels.
+
+72. What is FFI? How do you use native C/C++ with Flutter?
+
+73. Difference between isolates and threads.
+74. How to share memory between isolates?
+
+75. Handling 60fps / 120fps performance issues.
+
+80. How to handle errors globally in Flutter apps?
+
+81. How to implement caching at scale?
+
+83. How to optimize images for large apps?
+
+84. How to build offline-first apps?
+
+85. Deep linking & Firebase dynamic links.
+
+86. Push notifications with FCM.
+
+87. How to handle background notifications?
+
+88. App lifecycle states (resumed, paused, inactive).
+
+89. Handling state restoration.
+
+90. How do you architect a large production Flutter app?
+
+92. Modularization strategies in Flutter.
+
+93. Micro-frontend architecture with Flutter modules.
+
+94. Performance monitoring at scale (Firebase Performance, Sentry).
+
+95. Offline sync and conflict resolution patterns.
+
+99. Threading model & isolate pool for heavy work.
+
+100. DI frameworks (get_it, injectable) deep dive.
+
+101. CI/CD for Flutter (Fastlane, Codemagic, GitHub Actions).
+
+103. How to write platform-native plugins (Android/iOS).
+
+110. Handling dark mode, localization, theming at scale.
+
+
+211. System designer

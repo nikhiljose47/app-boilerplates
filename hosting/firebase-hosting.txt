@@ -1,0 +1,3 @@
+
+Hosting: 
+Install firebase cli, login, init project, firebase deploy --only hosting
