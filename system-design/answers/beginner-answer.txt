@@ -1,0 +1,14 @@
+
+2.Software Development
+1. Problem & Requirements
+2. System Design (High Level)
+3. Data Modelling
+4. API / Contract Design
+5. Application Architecture
+6. Implementation
+7. Testing
+8. Deployment & Maintenance
+
+
+
+Horizontal Scaling key peoples - Load balancer, Stateless servers is good, 

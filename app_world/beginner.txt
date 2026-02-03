@@ -18,5 +18,34 @@
 Work for my friend (handicapped) (optional)
 
 
+App making - 
+First - Small seo 
+Second - UX Chart - ~1 month
+Third - Prespective change, other user work
+Fourth - Testing and Alpha team
+Fifth -SEO and refinement and release.
+
+
+Golden practices for fast - 
+No friction 2 hr blocks of 5 per day
+No friction add new pages/servies/ui  : Split as refinment and Use break to learn
+High quality codes with super prompt  : Prompt page.
+
+
+
+
+
+
+Prompt =
+My setup is - Angular 19+ with zoneless & standalone (so ui will update on signals or rxjs or similar), route guard, env configs, bootstrap installed, routing, 
+strict typed, leaflet, firebase, ngrx store installed. Code must follow lazy loading, httpclients interceptor, responsive, 
+secure, fast, local caching (signal, rxjs or indexed db), Change detection on push only, api pagination, memoization, 
+sanitization, reusable UI, skeleton loaders, toast notifications, bottom nav for mobile, scalable app, Eslint, File upload service, photo exif handling. 
+Also Give good looking - top 10% and aesthetic and little creative designs.Also give seo catchy and friendly and simple namings.
+Also make sure UI will work smoth on low internet connetion or no interent.
+ So next when i ask any serive/UI just make sure to follow all the above. Also give response as very short and give entire file like one single html, 
+ or one single ts file, also if file ais large then give step by step like first give html and wait for my request for ts file like theat
+
+
 
 ❌ World of intra/within app - Features, 2+flows, Bug fix, Design changes

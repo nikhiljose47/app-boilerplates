@@ -1,8 +1,6 @@
 
 1.Add meta and tags
 
-
-
 2.Ensure app is crawlable
 def - lets see google ur html before scrpt runs
 
@@ -68,3 +66,14 @@ Add your site to Google Search Console and verify it.
 #
 Angular
 Use ngx-meta or Angular SEO tools for easier meta management.
+
+
+
+Extra - 
+Fix all SSR SEO safe, Common SSR breakers: window, document,localStorage, navigator.
+
+import { isPlatformBrowser } from '@angular/common';
+
+if (isPlatformBrowser(this.platformId)) {
+  localStorage.getItem('x');
+}

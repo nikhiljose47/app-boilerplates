@@ -1,3 +1,28 @@
+Senior Engineer = 
+1.Senior engineers design for change, not just for “working”. == Design for Change
+2.Think & Learn = Syper design the system 
+
+
+How http to handle?
+
+
+View (Widget)
+ ↓
+ViewModel
+ ↓
+Repository   ← Model layer lives here
+ ↓
+Network Layer (API calls)
+
+Network/Api layer or client  
+
+
+Layer = A set of classes with one responsibility == One responsibility
+ex: API layer = All HTTP-related logic lives in one place, separate from UI and business logic.
+
+
+
+System Design?
 For any framework, architecture explains: / how frameworks are checked/performance
 Between blocks/global - data flow, Change detection mechanism 
 Its rendering technique
@@ -6,39 +31,37 @@ Extra - Platfrom inetgration system
 
 Flutter working
 
-1.Create widget tree 
-(Para)2.Create an element tree for each/reuse  - Have buildcontext, Compare old vs new widgets (Perfo starts)
-(Para)3.Create renderObject(Parent of container/cards) Tree - Have sizes, how to paint //Dart work is done  //Real heavy work
-4.Do layouting and some updates and create paint commands from RenderObjects 
-5.Converts paint commands set/layer into Skia commands (C++).
-(outside)
-6.Skia convert commands(from flutter) to platform GPU commands (via OS)
+Layers - 
+1.Framework layer(Dart widgets)
+2.C++ Engine layer
+3.Embedder layer
+4.Skia layer
 
 Note: Rebuilding widgets ≠ repainting (Element decides)
 
-So Flutter Layered/Layers (as usual) = Framework layer(Dart widgets), C++ Engine layer, Embedder layer, Skia layer
-
 Schema -
-Widgets → Elements → RenderObjects
-       ↓
-   Layer Tree
-       ↓
-   Flutter Engine
-       ↓
-      Skia
-       ↓
-     Screen
+1.Create widget tree 
+    ↓
+(Para)2.Create an element tree for each/reuse  - Have buildcontext, Compare old vs new widgets (Perfo starts)
+(Para)3.Create renderObject(Parent of container/cards) Tree - Have sizes, how to paint //Dart work is done  //Real heavy work
+    ↓
+4.Do layouting and some updates and create paint commands from RenderObjects 
+    ↓
+5.Converts paint commands set/layer into Skia commands
+    ↓
+6.Skia convert commands to platform GPU hardware (via platform graphics API)
+7.Pixels on screen.
 
+How others do?
+Angular - Browser DOM
+React Native/Xamarin - Platform/JS brigde
 
-Why this? No platform/JS brigde/Same UI on all platforms as same code && Flutter rendering done by own engine (Angular by broswer DOM)
-
-Skia, an Open-source 2D graphics library (a mediator b/w real GPU & i/p commands)
-Convert them into:
-OpenGL commands (Android)
-Metal commands (iOS)
-Vulkan commands (newer Android)
-DirectX commands (Windows)
-
+Skia, an Open-source 2D graphics library (a mediator b/w real GPU & i/p commands), written in C++
+Platform graphics API
+OpenGL (Android)
+Metal (iOS)
+Vulkan (newer Android)
+DirectX (Windows)
 
 
 

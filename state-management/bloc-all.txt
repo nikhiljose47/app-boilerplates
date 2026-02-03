@@ -1,0 +1,103 @@
+What is BLoC in Flutter?
+
+Why is BLoC used instead of setState?
+
+What problem does BLoC solve?
+
+What are the core components of BLoC?
+
+What is an Event in BLoC?
+
+What is a State in BLoC?
+
+What is the role of a Stream in BLoC?
+
+Explain the data flow in BLoC.
+
+Difference between BLoC and Cubit?
+
+What is BlocProvider and why is it needed?
+
+What is BlocBuilder?
+
+What is BlocListener?
+
+What is BlocConsumer?
+
+When should you use BlocBuilder vs setState?
+
+Can BLoC be used without Flutter?
+
+🟡 Intermediate (16–30)
+
+How do you handle API calls in BLoC?
+
+How do you manage loading and error states?
+
+What are buildWhen and listenWhen?
+
+How do you prevent unnecessary UI rebuilds?
+
+Where should navigation logic live in BLoC architecture?
+
+How do you share a BLoC across multiple screens?
+
+How do you handle form validation in BLoC?
+
+Difference between emit and yield?
+
+How do you cancel or debounce events in BLoC?
+
+What is BlocObserver and why is it useful?
+
+How do you handle multiple events at once?
+
+How does BLoC compare with Provider or Riverpod?
+
+How do you dispose a BLoC properly?
+
+Can you explain immutable states and why they matter?
+
+What are common mistakes developers make with BLoC?
+
+🔴 Advanced (31–40)
+
+How does BLoC handle concurrency internally?
+
+How do you persist and restore BLoC state?
+
+What is HydratedBloc and when would you use it?
+
+How do you structure BLoC in a large-scale app?
+
+How do you test BLoC effectively?
+
+How do you optimize BLoC for performance?
+
+How do you handle side effects cleanly in BLoC?
+
+How do you manage authentication state across the app?
+
+Can BLoC cause memory leaks? How do you prevent them?
+
+When would you NOT use BLoC?
+
+BLoC internals (event queue, concurrency)
+
+Cubit vs BLoC in large apps
+
+State immutability and copy strategies
+
+buildWhen / listenWhen performance tuning
+
+Global vs local state boundaries
+
+Persisted state (HydratedBloc, cache sync)
+
+Error-first state design
+
+Side-effects isolation patterns
+
+Avoiding rebuild storms
+
+State normalization strategies

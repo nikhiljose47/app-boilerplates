@@ -1,0 +1,71 @@
+1️⃣ Angular App (Build & Code)
+Production build (ng build --configuration production) without console logs & debug flags
+Enable AOT, build optimizer, minification
+Strict typing enabled
+Lazy loading for routes
+Environment configs (environment.prod.ts)
+Proper error handling (global error handler)
+SEO basics (meta tags, title, robots)
+
+
+2️⃣ Firebase Setup
+Firestore rules (read/write restricted by role)
+Auth providers configured (email / phone / Google etc.)
+Indexes created for all where + orderBy queries
+Cloud Functions (if any) deployed & tested
+Disable test / emulator configs
+Backup strategy (Firestore export)
+Enable Firebase App Check
+
+
+3️⃣ Cloudflare Hosting / CDN
+DNS correctly pointed to hosting
+HTTPS enforced (SSL on)
+Cache rules set for static assets
+Brotli / Gzip enabled
+Page rules for SPA routing (/* → index.html)
+WAF basic rules enabled
+Rate limiting for APIs (if proxied)
+Custom error pages (404/500)
+
+
+4️⃣ Public REST API Usage
+API keys secured (env / Cloudflare secrets)
+CORS configured correctly
+Request timeouts & retries
+API versioning handled
+Input/output validation
+Graceful fallback on API failure
+Rate-limit awareness (avoid abuse)
+Cache responses where possible
+
+
+Monitoring & Logs -
+Firebase Crashlytics / Logging
+Cloudflare analytics enabled
+Error tracking (Sentry optional)
+Uptime monitoring
+API error logging
+
+
+
+Security -
+No secrets in frontend code
+Firebase rules tested with emulator
+XSS / sanitization for user inputs
+CSP headers (via Cloudflare)
+Auth-based data access only
+Disable unused Firebase services
+Domain allow-listing
+
+
+Legal - 
+Privacy Policy
+Terms & Conditions
+Cookie consent (if required)
+Data retention policy
+Contact / support info
+
+
+
+Checks - On multiple devices, Slow network & Offline, Flawless payment, Rollback plan ready

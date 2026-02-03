@@ -1,0 +1,11 @@
+
+1.How do you handle slow APIs?
+2.How do you design offline-first REST clients?
+3.What is idempotency and why does it matter?
+4.How do you avoid over-fetching or under-fetching data?
+5.How do you secure REST communication? - Using HTTPS, token-based auth, certificate pinning, and secure storage.
+6.How do you validate API responses?
+7.How do you manage API versioning?
+8.What is the difference between transport errors and application errors?
+9.How do you design a REST client for scalability?
+10.How do you handle HTTP errors in production systems?

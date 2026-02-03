@@ -1,10 +1,70 @@
-8. What is MaterialApp vs WidgetsApp?
+My Base
+All are classes - a property box 
+We are mapping property to property, use it to display
+
+if noticed everywhere, constructors give as this property box. 
+
+-----------------
+
+
+
+
+What is MVVM?
+1liner - An architectural pattern that seperate UI from business logic using -ViewModel
+
+
+SetState not for large ? 
+Due to its working nature as it will update its widget subtree by 1st making the associated element dirty flag.
+Schema:
+setState - do Element.markNeedsBuild()
+ ↓
+Flutter - stores this element in a dirty elements list
+ ↓
+Flutter has a Scheduler + PipelineOwner
+ ↓
+Flutter batch it & try to rebuild 1 per frame (~16ms) at least.
+
+
+ListView ?
+A ListView is basically a CustomScrollView with a single SliverList in its CustomScrollView.slivers property.
+
+
+BuildContext?
+Navigation, Theme, Access to inherited widgets.
+
+
+1. What is MaterialApp vs WidgetsApp?
 WidgetApp = Parent of Material App, So abstract & we can customize - Use it we need custom design system
 Material app - uses Google designs, styles, Cupurtino App
 
-9. What is Scaffold?
 
-13. Types of ListViews. - .builder, .seperated, .custom
+61. SOLID principles in Flutter.
+    Single, Open, Liskov Sub, Interface segregation, Dep Inversion
+
+
+62. Explain Clean Architecture in Flutter.
+    Presentation, Domain, Data Layer
+    Clean Architecture is an app structure pattern that separates your code into independent, testable layers so UI, 
+business logic, and data are not tightly coupled.
+
+It makes large Flutter apps scalable, maintainable, and easy
+
+
+ ┌────────────────────┐
+ │    PRESENTATION    │  UI + State (e.g., Bloc/Riverpod)
+ └──────────▲─────────┘
+            │
+ ┌──────────┴─────────┐
+ │     DOMAIN          │  Entities + Use Cases + Abstract Repos
+ └──────────▲─────────┘
+            │
+ ┌──────────┴─────────┐
+ │     DATA            │  API/Firestore/SQLite implementations
+ └────────────────────┘
+
+
+Domain Layer should be pure ?
+
 
 
 36. What is InheritedWidget? (Use cases)
@@ -58,6 +118,8 @@ So, Provider is a wrapper around InheritedWidget, designed to make it easier and
 Widgets call context.watch() or context.read()
 Without Provider, using InheritedWidget directly is verbose and error-prone.
 
+
+
 What are ChangeNotifier and ValueNotifier? - Both are simple observable classes used for state management.
 
 ChangeNotifier - A class that holds state
@@ -90,50 +152,6 @@ Typical pattern
 ChangeNotifier → Provider → InheritedWidget → Widget tre
 
 43. What is responsive UI in Flutter? - MediaQuery, LayoutBuilder, Expanded and Flexible, OrientationBuilder, AspectRatio
-61. SOLID principles in Flutter.
-    Single, Open, Liskov Sub, Interface segregation, Dep Inversion
-62. Explain Clean Architecture in Flutter.
-    Presentation, Domain, Data Layer
-
-
-Interceptor 
-By Dio, By http_interceprot (all are 3rd party)
-
-Example - 
-import 'package:dio/dio.dart';
-class TokenRefreshInterceptor extends Interceptor {
-  final Dio dio;
-
-  TokenRefreshInterceptor(this.dio);
-
-  @override
-  void onError(DioException err, ErrorInterceptorHandler handler) async {
-    if (err.response?.statusCode == 401) {
-      try {
-        final newToken = await refreshToken();
-
-        err.requestOptions.headers['Authorization'] =
-            'Bearer $newToken';
-
-        final response = await dio.fetch(err.requestOptions);
-        return handler.resolve(response);
-      } catch (e) {
-        return handler.next(err);
-      }
-    }
-
-    return handler.next(err);
-  }
-}
-
-Register - 
-final dio = Dio();
-
-dio.interceptors.add(
-  TokenRefreshInterceptor(dio),
-);
-
-final response = await dio.fetch(err.requestOptions);
 
 
 runZonedGuarded<R> function - 
@@ -212,4 +230,7 @@ got interceptor and retry/timeout support.
 | Timeout / Retry        | Manual                      | Built-in                      | Dio supports advanced configs                    |
 | File Upload / Download | Basic                       | Advanced                      | Dio handles multipart and progress easily        |
 | Enterprise Usage       | ❌ Limited                   | ✅ Preferred                   | Dio scales better for large apps                 |
+
+
+
 

@@ -1,4 +1,6 @@
 
+1.Senier level - how to handle http call?
+
 3.What is interceptor?
 
 63. Explain Flutter engine architecture.
@@ -63,5 +65,6 @@ Where do widgets, elements, and render objects fit?
 
 110. Handling dark mode, localization, theming at scale.
 
+5.Experience with local storage solutions and offline-first implementation. - Hive, SQLite
 
 211. System designer

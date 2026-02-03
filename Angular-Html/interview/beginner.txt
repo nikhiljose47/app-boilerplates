@@ -2,3 +2,6 @@
 
 1.What are inline and block elements in html?
 2.Why use of resolver?
+3.When to use local storage and indexedDB and app cache?
+4.Difference b/w section & header
+5.

@@ -1,0 +1,54 @@
+
+1.Why interceptor made?
+
+Main usage - Authentication
+
+Server side - 
+If the request carries a credential (a session ID in cookie based authentication strategy, or an access token in token based 
+strategy), then fetch the user from database according to that credential. If the user can be found, then bind the user to the 
+request, and pass the request to the next step of processing. If there’s no credential, or the user can’t be found, then halt the 
+process of current request, and send a response back to the client/browser indicates that the authentication was failed
+
+
+Client side -
+Adding Tokens, Adding retry, Adding refresh, logging
+
+
+
+Flutter side - 
+
+Schema: 
+Extend Interceptor and override methods
+  ↓
+dio.interceptors.add(AppInterceptor());
+
+
+
+
+
+ex: 
+import 'package:dio/dio.dart';
+class TokenRefreshInterceptor extends Interceptor {
+  final Dio dio;
+
+  TokenRefreshInterceptor(this.dio);
+
+  @override
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
+    if (err.response?.statusCode == 401) {
+      try {
+        final newToken = await refreshToken();
+
+        err.requestOptions.headers['Authorization'] =
+            'Bearer $newToken';
+
+        final response = await dio.fetch(err.requestOptions);
+        return handler.resolve(response);
+      } catch (e) {
+        return handler.next(err);
+      }
+    }
+
+    return handler.next(err);
+  }
+}

@@ -1,14 +1,27 @@
 
 
-New - R&D, 
+Speed - Drill, 1liner, Exhale
+Technical -  Daily
 
-Flutter companies
-Tide 
-ByteDance
+
+
+FLUTTER Companies - Tide , ByteDance, Google, BMW, IDFC, Deloitte   
     
 
-High Paying - 40 LAKHS+
-WARNER bros 
-AIRbnb
-Fortune 500
-GE
+High PAY INC - 40 LAKHS+ - WARNER bros, AIRbnb,Fortune 500, GE
+
+
+
+Cover Letter
+
+Respected Hiring Manager,
+
+I am a Senior Flutter Developer with 5+ years of experience in building scalable, high-performance cross-platform mobile applications using Flutter and Dart. 
+I currently work at CitiusTech, where I design and deliver configurable Flutter libraries for enterprise healthcare systems, owning architecture, testing, documentation, and performance optimization. 
+Previously, I contributed to healthcare and edtech platforms, including a Flutter app recognized as a top-five finalist in the Global Learning XPRIZE and rated 4.4 on the Play Store. 
+I bring strong expertise in system design, performance profiling, and clean architecture, and I am eager to contribute to impactful, innovation-driven teams.
+
+Sincerely,
+Nikhil Jose
+Email: nikhiljose47@gmail.com
+Contact: +91 8848386668

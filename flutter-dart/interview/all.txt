@@ -1,0 +1,171 @@
+
+Questions - 
+1.Super design a system for an http call
+2.Super design a system for bloc
+3.
+
+
+1. Architecture & Design (Very High Weight)
+
+Clean Architecture in Flutter (domain, data, presentation)
+MVVM vs BLoC vs Redux vs Riverpod (trade-offs)
+Feature-first vs layer-first folder structures
+State ownership and lifecycle boundaries
+Dependency injection strategies (get_it, riverpod, manual)
+Modularization and package separation
+Anti-patterns in Flutter architecture
+Managing cross-feature communication
+Event-driven vs state-driven design
+
+
+2. Rendering & Widget Internals (Critical)
+
+Widget → Element → RenderObject pipeline
+Stateless vs Stateful cost differences
+InheritedWidget vs Provider vs Riverpod internals
+Keys (ValueKey, ObjectKey, GlobalKey) misuse and cost
+Build phase vs layout vs paint
+Rebuild vs repaint vs relayout
+Slivers architecture and use cases
+CustomRenderBox vs CustomPainter
+Constraints flow (tight vs loose)
+Reconciliation algorithm
+
+
+3. Performance Optimization (Senior Filter)
+Frame budget (16ms) reasoning
+Jank diagnosis techniques
+Rebuild profiling (Flutter DevTools)
+Image memory & cache management
+Isolates vs compute()
+Avoiding overdraw
+Shader compilation jank
+List virtualization strategies
+Using RepaintBoundary correctly
+Tree shaking and code size reduction
+
+
+4. Async, Concurrency & Streams
+
+Dart event loop & microtask queue
+Futures vs Streams vs Isolates
+Stream transformations & backpressure
+Debounce / throttle in UI pipelines
+Cancelable operations
+Handling race conditions in UI
+Error propagation strategies
+Retry + exponential backoff
+Parallel async workflows
+Cold vs hot streams
+
+
+5. Navigation & Routing (Advanced)
+
+Navigator 1.0 vs Navigator 2.0
+Declarative routing principles
+Deep linking & URL sync
+State-driven navigation
+Guarded routes & auth flows
+Web vs mobile navigation differences
+Back-stack management
+Nested navigation
+Memory implications of routing
+Testing navigation flows
+
+
+6. Platform Integration
+
+MethodChannels internals
+PlatformViews performance costs
+Native lifecycle coordination
+iOS vs Android threading differences
+Permissions & background tasks
+File system & storage access
+Camera, media, sensors integration
+Push notifications architecture
+Deep OS-level integration risks
+Plugin versioning strategies
+
+
+8. Networking & Data Layer
+
+REST vs GraphQL in Flutter
+Dio vs http vs custom clients
+API pagination strategies
+Caching (memory, disk, hybrid)
+Offline-first architecture
+Data consistency & sync
+Retry & timeout strategies
+Secure token storage
+Interceptors and middleware
+Serialization cost optimization
+
+
+9. Testing (Senior Expectation)
+
+Unit vs Widget vs Integration tests
+BLoC testing patterns
+Mocking async dependencies
+Golden tests pros/cons
+Flaky test diagnosis
+CI-friendly test design
+Testability-driven architecture
+Coverage vs confidence
+Performance testing
+Testing navigation & state restoration
+
+
+10. Build, Release & DevOps
+
+Build flavors & environments
+App size optimization
+CI/CD pipelines for Flutter
+Code signing & secrets handling
+Crash reporting strategies
+Feature flags & remote config
+OTA limitations in Flutter
+Versioning strategies
+Store review edge cases
+Rollback planning
+
+
+11. Security (Often Missed)
+
+Secure storage pitfalls
+API key protection
+SSL pinning
+Obfuscation limits
+User data isolation
+Web security concerns (Flutter Web)
+Auth token lifecycle
+Jailbreak / root considerations
+Data leakage via logs
+Third-party SDK risks
+
+
+13. Leadership & Senior Judgment (Very Important)
+
+Technical decision justification
+Handling legacy Flutter codebases
+Incremental refactors
+Mentoring juniors
+Code review red flags
+Balancing speed vs quality
+Handling production outages
+Stakeholder communication
+Estimation accuracy
+Architecture evolution over time
+
+
+14. Common Senior-Level Traps Interviewers Test
+
+Over-engineering with BLoC
+Excessive GlobalKeys
+setState misuse in large trees
+Putting UI logic in BLoC
+Ignoring performance until late
+Poor error modeling
+Tight coupling to frameworks
+Ignoring platform differences
+Overusing third-party packages
+Premature optimization

@@ -1,0 +1,9 @@
+
+The substring() method of String values returns the part of this string from the start index up to and excluding the end index, 
+or to the end of the string if no end index is supplied.
+
+
+Why interceptor made?
+We dont call them, they wrap the http client. They are made to just sit between client and server.
+
+

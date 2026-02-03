@@ -1,3 +1,10 @@
+Index -
+A.About project detailed
+B.Advanced 20+ interview list
+C.Beginner & Basic Coding test - 50+
+Ithavan - akavum puravum - full ariyanam - like top king.
+
+
 
 1. What is Flutter and why use it? - 3.38 and Dart: 3.10
 2. void main(){} Vs runapp(Widget W)
@@ -5,47 +12,49 @@
 4. Late, final, var, const
 5. What is the purpose of keys in Flutter? *GlobalKey
 6. What is the widget lifecycle in StatefulWidget?
-42. What is MediaQuery and LayoutBuilder?
+4. What is MediaQuery and LayoutBuilder?
 7. Stream Vs Future & Builders
 9. What is Scaffold/fundamental layout widget ? (basic App structure), 
 10.Know other different widgets - SafeArea, AbsorbPointer, 
+41. Why can't you use context in initState?
+12.Beauty of Future and await?
+15.What is jank?
+16.Why setState must not be used for large apps?
+8. What is MaterialApp vs WidgetsApp?
+20.What is async and await
+21.
 
 
-Index -
-A.About project detailed
-B.Advanced 20+ interview list
-C.Beginner & Basic Coding test - 50+
-Ithavan - akavum puravum - full ariyanam - like top king.
+IN progress
+C.How to make manual stream?
+C.How to display count of mixed list?
+1.What is Future?
+2.What is BuildContext?
+3.BlocBuilder Vs BlocConsumer?
+4.Types of ListViews.
+5.SOLID principles?
+6.Explain Clean Architecture in Flutter
+7.Create a manual stream.
+8.Dart versions.
 
-16. How do you fetch data from REST API in Flutter?
+
+Next - 
+12.What is buildcontext? Who provides data and what it has? - Real diff & requirement between element tree & widget tree
+13.Repaint boundary widget?
 17 How do you handle errors in async code?
 20. How to store data locally (SharedPreferences)?
 22. What are assets and how do you load images in Flutter?
-24. What is async/await?
 53. What is an extension method in Dart?
 22. What is factory constructors
-8. What is MaterialApp vs WidgetsApp?
-13. Types of ListViews.
-52. What is Debounce and Throttle?
 
 36. What is InheritedWidget? Use cases? And Provider
 38. What are ChangeNotifier and ValueNotifier?
-
-40. What is BuildContext?
-41. Why can't you use context in initState?
-43. What is responsive UI in Flutter?
-44. What causes UI jank? (Very important)
 45. How to optimize performance in Flutter?
 49. What is mixin? Example with SingleTickerProviderStateMixin.
 50. What is isolate in Flutter?
 54. Explain Null Safety in Dart.
 56. What is sealed class, class modifiers in Dart?
-61. SOLID principles in Flutter.
-62. Explain Clean Architecture in Flutter
-63. Interceptor in Flutter 
 64. RunZoned
-65.Which one follow - MVVM, MVM, ?  
-
+65.Which one follow Model–View–ViewModel ?  
 3. Bloc pattern deep dive — events, states, transition.
 4. Local database comparison: Hive vs Floor vs Drift vs SQLite.
-70.Bargain

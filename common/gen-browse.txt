@@ -1,0 +1,10 @@
+
+
+File type based -
+filetype:pdf "IIT syllabus plan"
+
+Remote specific by name- 
+"XYZ Coaching" "syllabus pdf"
+
+Remote specific by IP - 
+site:drive.google.com "syllabus" "academy"
