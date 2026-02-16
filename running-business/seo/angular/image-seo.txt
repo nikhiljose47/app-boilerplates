@@ -1,0 +1,23 @@
+
+
+          <img
+            class="banner"
+            [src]="getBannerSrc(item?.image)"
+            [alt]="getBannerAlt(item)"
+            loading="lazy"
+            (error)="onImgError($event)"
+          />
+
+
+
+  getBannerSrc(src?: string | null): string {
+    return src || PLACEHOLDER__COVER_IMG;
+  }
+
+  onImgError(event: Event) {
+    (event.target as HTMLImageElement).src = PLACEHOLDER__COVER_IMG;
+  }
+
+  getBannerAlt(item: any): string {
+    return item?.label ? `${item.label} cover` : 'Class cover';
+  }

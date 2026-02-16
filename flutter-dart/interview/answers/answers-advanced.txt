@@ -50,7 +50,9 @@ Schema -
 5.Converts paint commands set/layer into Skia commands
     ↓
 6.Skia convert commands to platform GPU hardware (via platform graphics API)
+    
 7.Pixels on screen.
+
 
 How others do?
 Angular - Browser DOM

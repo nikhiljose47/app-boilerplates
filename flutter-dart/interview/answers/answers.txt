@@ -39,7 +39,10 @@ Material app - uses Google designs, styles, Cupurtino App
 
 
 61. SOLID principles in Flutter.
-    Single, Open, Liskov Sub, Interface segregation, Dep Inversion
+    Single, Open-Closed - Adding new class, without base class touch
+    Liskov Sub - A FirebaseAuthService can be swapped with a MockAuthService in tests & It must work!
+    Interface segregation - Splitting AuthService into smaller like LoginService, RegistrationService, PasswordResetService
+    Dep Inversion - To make code more flexible
 
 
 62. Explain Clean Architecture in Flutter.
@@ -149,9 +152,27 @@ Provider → developer-friendly wrapper over InheritedWidget
 ChangeNotifier / ValueNotifier → state objects exposed via Provider
 
 Typical pattern
-ChangeNotifier → Provider → InheritedWidget → Widget tre
+ChangeNotifier → Provider → InheritedWidget → Widget Tree
 
-43. What is responsive UI in Flutter? - MediaQuery, LayoutBuilder, Expanded and Flexible, OrientationBuilder, AspectRatio
+
+Errors & Async-await
+Dart recommends using try-catch with async-await as it is better for debugging, stacktrace, readability.
+
+try{
+  await getData();
+}
+catch(e){
+  handleErr(e);
+}
+or
+await getData().catchError((err)=>handleErr());
+
+Senior/baby level - await keyword is used to delay execution until the async operation returns a result. 
+Senior/baby level - try–catch with await is not fully equivalent to catchError because try–catch captures both synchronous and asynchronous 
+errors within the block, while catchError only handles Future completion errors.
+
+What is responsive UI in Flutter?
+MediaQuery, LayoutBuilder, Expanded and Flexible, OrientationBuilder, AspectRatio
 
 
 runZonedGuarded<R> function - 
@@ -234,3 +255,54 @@ got interceptor and retry/timeout support.
 
 
 
+Coding - 
+
+
+list.where
+
+
+
+Object merging 
+
+ final Map<String, int> map1 = {'a': 1, 'b': 2};
+ final Map<String, int> map2 = {'b': 3, 'c': 4};
+ final Map<String, int> combinedMap = {...map1, ...map2};
+ 
+ print(combinedMap); // Output: {'a': 1, 'b': 3, 'c': 4}
+
+
+List<Item> mergeLists(List<Item> a, List<Item> b) {
+  final result  = <String, dynamic>{};
+
+  for(final item in b){
+
+    if(a.containsKey('id') && a['id'] == b['id]){
+        result = {...result, item}
+    }
+  }
+  
+  return map;
+}
+
+
+yield
+Stream<int> downloadProgress() async* {
+    for (int i = 0; i <= 100; i += 10) {
+      await Future.delayed(const Duration(milliseconds: 500));
+      yield i;
+    }
+  }
+
+
+E.Generate list - filled, generate
+List<int>.filled(5, 0);  || List.filled(int len, E fill, {bool growable = false})
+List<String>.generate(3, (int i) => '${i + 1}');  || List.generate(int len, E generator(int i), {bool growable = true})
+List.sort((a, b) => a.compareTo(b)); 
+
+
+
+Index -
+A.About project detailed
+B.Advanced 20+ interview list
+C.Beginner & Basic Coding test - 50+
+Ithavan - akavum puravum - full ariyanam - like top king.

@@ -1,0 +1,17 @@
+
+
+Simple 3-
+
+✅ 1️⃣ Add font (Google Fonts) — once in index.html
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+
+✅ 2️⃣ Use it only for that title (component SCSS)
+.special-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+✅ 3️⃣ Apply in HTML
+<h1 class="special-title">My Elegant Title</h1>

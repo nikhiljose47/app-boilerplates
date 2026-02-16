@@ -1,0 +1,49 @@
+What are the core parts of BLoC?
+
+1.Event → user/action trigger
+2.Bloc → converts event → state
+3.State → UI output
+
+Schema:
+UI → Event → Bloc → State → UI
+
+
+What is event?
+
+Example:
+class IncrementEvent {}
+
+
+What is a state?
+A State represents the current UI data.
+
+Example:
+class CounterState {
+  final int count;
+  CounterState(this.count);
+}
+
+
+How UI access Bloc?
+context.read<CounterBloc>()
+context.watch<CounterBloc>()
+
+
+What does a Bloc class do?
+It listens to events and emits new states.
+
+
+What is Cubit?
+Cubit is a simplified state management class from the Bloc library that emits new states directly through methods without using events, making it suitable for less complex logic.
+Why Cubit was introduced? - Because developers felt: Many features didn’t need events.
+
+=> Cubit is a class from the bloc package!! used for: Block without event class system ie Bloc package has Bloc and Cubit
+
+Cubit example:
+class CounterCubit extends Cubit<int> {
+  CounterCubit() : super(0);
+
+  void increment() {
+    emit(state + 1);
+  }
+}

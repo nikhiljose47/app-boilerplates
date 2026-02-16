@@ -1,0 +1,23 @@
+
+
+
+
+const subscription = myObservable.subscribe({
+  next: value => console.log('Received:', value),
+  error: e =>{},
+  complete: () => console.log('Stream Completed')
+});
+
+
+
+Manual trigger - 
+
+const myObservable = new Observable(observer => {
+  observer.next('Data 1');
+  observer.next('Data 2');
+  
+  setTimeout(() => {
+    observer.next('Data 3'); // Will be emitted after 2 sec
+    observer.complete();
+  }, 2000);
+});

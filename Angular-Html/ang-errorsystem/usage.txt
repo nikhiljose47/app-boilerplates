@@ -1,0 +1,20 @@
+
+Variables -  
+  
+  isLoading = signal<boolean>(true);
+  hasErr = signal<boolean>(false);
+  errMsg = signal<string>('We are facing some issue..');
+
+
+
+HTML -
+
+<dot-loader *ngIf="isLoading(); else hasError"></dot-loader>
+
+<ng-template #hasError>
+  <content-placeholder *ngIf="hasErr(); else hasData" [message]="errMsg()"> </content-placeholder>
+</ng-template>
+
+<ng-template #hasData> 
+//body
+<ng=template>

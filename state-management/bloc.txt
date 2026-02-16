@@ -10,14 +10,20 @@ BlocProvider(
 
 2.Manager - Events, State, Bloc
 
-2.1 Home Event
-
+2.1 Home Events
 abstract/sealed? class CounterEvent {}
 class Increment extends CounterEvent {}
 class Decrement extends CounterEvent {}
 
+2.2 Bloc
+class CounterBloc extends Bloc<CounterEvent, CounterState> {
+  CounterBloc() : super(CounterState(0)) {
+    on<Increment>((event, emit) => emit(CounterState(state.count + 1))); //emit - A callback funtion, used to push state or "Add new value to the Bloc’s state stream"
+    on<Decrement>((event, emit) => emit(CounterState(state.count - 1)));
+  }
+}
 
-2.2 State
+2.3 State - Simple OOP class
 @immutable
 sealed class HomeState {}
 
@@ -27,17 +33,6 @@ final class CounterState extends HomeState {
   final int counter;
   const CounterState({required this.counter});
 }
-
-
-2.3 Bloc
-
-class CounterBloc extends Bloc<CounterEvent, CounterState> {
-  CounterBloc() : super(CounterState(0)) {
-    on<Increment>((event, emit) => emit(CounterState(state.count + 1)));
-    on<Decrement>((event, emit) => emit(CounterState(state.count - 1)));
-  }
-}
-
 
 
 3.Build function
@@ -57,17 +52,7 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
         );
       },
     );
-
-
-Builder X Listener X Consumer
-
-Widget	Rebuild UI?	Side effects?	Use case
-BlocBuilder	✔ Yes	❌ No	UI update only
-BlocListener	❌ No	✔ Yes	SideEffects = Snackbars, navigation, dialogs
-BlocConsumer	✔ Yes	✔ Yes	SideEffects = When you need both UI + side effects
-
-
-Signature of the fat boy -  
+OR 
 
 BlocConsumer<BlocType, StateType>(
   listener: (context, state) {},

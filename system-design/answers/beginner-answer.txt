@@ -12,3 +12,10 @@
 
 
 Horizontal Scaling key peoples - Load balancer, Stateless servers is good, 
+
+
+Some qualities -
+1.Always ask for clarification. Do not assume your assumption is correct
+ ex: Some times when to design a chat app, interviews may only need 1-1 chat and not group chat!
+
+2.Be interested and show some interest to the thing they saying!

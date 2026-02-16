@@ -1,34 +1,15 @@
-What is BLoC in Flutter?
 
-Why is BLoC used instead of setState?
+1.What is BLoC in Flutter?
+2.What are the core components of BLoC?
+3.What is an Event & State in BLoC?
+4.What is BlocProvider and why is it needed?
 
-What problem does BLoC solve?
+5.What is Cubit?
 
-What are the core components of BLoC?
 
-What is an Event in BLoC?
 
-What is a State in BLoC?
 
-What is the role of a Stream in BLoC?
 
-Explain the data flow in BLoC.
-
-Difference between BLoC and Cubit?
-
-What is BlocProvider and why is it needed?
-
-What is BlocBuilder?
-
-What is BlocListener?
-
-What is BlocConsumer?
-
-When should you use BlocBuilder vs setState?
-
-Can BLoC be used without Flutter?
-
-🟡 Intermediate (16–30)
 
 How do you handle API calls in BLoC?
 
@@ -79,8 +60,6 @@ How do you handle side effects cleanly in BLoC?
 How do you manage authentication state across the app?
 
 Can BLoC cause memory leaks? How do you prevent them?
-
-When would you NOT use BLoC?
 
 BLoC internals (event queue, concurrency)
 
