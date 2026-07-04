@@ -1,0 +1,27 @@
+
+class CounterService {
+  int _count = 0;
+
+  int get count => _count;
+
+  void increment() {
+    _count++;
+  }
+}
+
+
+/// Test
+import 'package:flutter_test/flutter_test.dart';
+import 'package:your_app/counter_service.dart';
+
+void main() {
+  test('CounterService increments value', () {
+    final service = CounterService();
+
+    expect(service.count, 0);
+
+    service.increment();
+
+    expect(service.count, 1);
+  });
+}

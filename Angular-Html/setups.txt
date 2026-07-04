@@ -1,0 +1,6 @@
+
+
+
+
+Load assets - 
+Add in ang.json - "src/assets",

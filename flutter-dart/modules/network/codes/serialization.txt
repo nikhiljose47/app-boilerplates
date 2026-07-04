@@ -1,0 +1,40 @@
+
+
+if (response.statusCode == 200) {
+  final data = jsonDecode(response.body);
+  final user = User.fromJson(data);   //Serizalization call
+}
+
+
+/// User
+class User {
+  final int id;
+  final String name;
+  final String email;
+
+  User({
+    required this.id,
+    required this.name,
+    required this.email,
+  });
+
+  // 🔥 JSON → Dart Object
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: json['id'],
+      name: json['name'],
+      email: json['email'],
+    );
+  }
+
+  // 🔥 Dart Object → JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+    };
+  }
+}
+
+

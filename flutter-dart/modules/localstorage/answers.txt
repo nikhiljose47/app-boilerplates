@@ -1,0 +1,7 @@
+
+
+1.Diifferent ways to store/use localstorage?
+are - 1.SharedPrefeernce   2.SQLite   3.Hive
+
+
+2.

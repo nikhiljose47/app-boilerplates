@@ -1,0 +1,5 @@
+
+
+
+RequestOptions - req.path (/users or/collection), req.method (GET), req.data (body), req.headers 
+Handler - 

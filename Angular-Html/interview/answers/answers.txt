@@ -5,3 +5,13 @@ which does not inherently represent anything. It can be used to group elements f
 
 <section>: The HTML Section element (<section>) represents a generic section of a document, i.e., a thematic grouping of content, 
 typically with a heading.
+
+
+>> CSS funtions
+clamp()
+calc()  ex: width: calc(100% - 120px);
+var()
+min() / max()
+linear-gradient()
+repeat()
+translate()  - Moves an element along the X and Y axis, ex: transform: translate(50px, 20px);

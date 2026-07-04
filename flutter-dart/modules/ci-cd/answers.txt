@@ -1,0 +1,41 @@
+
+
+1.What is QA flow?
+Push code → run tests → build APK/IPA → deploy
+
+
+2.How to setup the pipeline?
+Single Step: (Can Edit later)
+Create pipleine structure and jobs @yml file:
+
+ .gitlab-ci.yml
+
+image: cirrusci/flutter:stable
+
+stages:         //Count of Jobs
+  - build
+  - test
+  - deploy
+
+before_script:    // common setup
+  - flutter pub get
+
+build_app:       // 1️⃣ BUILD JOB
+  stage: build
+  script:
+    - flutter build apk --release
+  artifacts:
+    paths:
+      - build/app/outputs/flutter-apk/app-release.apk
+
+run_tests:       // 2️⃣ TEST JOB
+  stage: test
+  script:
+    - flutter test
+
+deploy_app:      // 3️⃣ DEPLOY JOB (only main) && To real server
+  stage: deploy
+  script:
+    - echo "Deploying app..."
+  only:
+    - main

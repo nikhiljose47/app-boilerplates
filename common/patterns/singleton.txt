@@ -1,0 +1,22 @@
+Singleton pattern - design idea
+Singleton class - implementation
+
+
+Requisites: 
+1.Normal Constructors - Can't return, Implicit generated, 
+2.Factory constructors - Can't create object
+3.Private constructors - by _
+4.If we call any fn(), it must be there defined fn()
+
+
+Singleton theory - 
+1.Need a constructor to return same state
+2.So if we use factory then creation must be some other way
+
+
+class S {
+  static S _instance = S._();      or S._internal(); // private instance object stored in variable
+  
+  factory S() => _instance;     // without it => ❌ERR: no public constructor exists
+  S._()                 // Need to define for line 1 S.() fn call.
+} 

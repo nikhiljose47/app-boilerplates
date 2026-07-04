@@ -1,0 +1,19 @@
+
+
+What are those error states?
+
+Part of app state which are errors 
+We should make intoa state!
+
+
+Ways to map?
+
+
+
+
+How to use? --- Backtrack (at UI)
+-BlocBuilder, Streambuilder, 
+if (state is Loading) return Loader();
+if (state is Empty) return EmptyWidget();
+if (state is Error) return ErrorWidget(state.message);
+if (state is Success) return DataView(state.data);

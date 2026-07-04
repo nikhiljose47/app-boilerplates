@@ -1,0 +1,36 @@
+
+
+Origins:
+Earlier app_links package
+
+
+1.
+Inject router to material app above with GoRouter as the routes.
+final _router = GoRouter(initialLocation: '/', routes: [ GoRoute(path: '/', builder: ..), ] );
+
+2.
+Edit the xml or Info.plist of native code
+
+3.
+Test links-
+https://yourdomain.com/product/123 OR yourapp://product/123
+
+
+
+
+Deeper --
+
+How it works? (A-level)
+
+1. Android intercepts link
+2. Checks all installed apps
+3. Finds your intent-filter match
+4.Android OS → launches Flutter Activity
+5.Flutter load as usual, Gets the inital route/URL pass/transfer from android code to flutter android code.
+6.GoRoute parses it, matches and do 
+
+
+
+Flutter Activity?
+An Android class. It is entry point for the Flutter to start kick in..
+It boots Flutter engine, Dart codes, compile and render 

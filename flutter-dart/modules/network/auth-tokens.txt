@@ -1,0 +1,87 @@
+
+
+1.Tokens in Secure storage
+2.Do the automated attachig and retry with Authinterceptor 
+
+
+
+API keys -
+Server -- the Safest
+[Firebase secrets, Cloudflare secrets]
+
+
+env file -- local Safest
+.env is a popular file format that was introduced to give developers a single secure place to store sensitive application secrets. put key there.
+1.Create .env file with key
+2.Create env.dart file with class to access
+3.<ext package> that can geenrate/deal this .env by command = dart run build_runner build -d
+4.Run build-build_runner
+5.Access -  
+  final url = Uri.parse('$Env.baseUrl/data');
+  final response = await http.get(url);
+
+
+
+class AuthInterceptor extends Interceptor {
+  final Dio dio;
+  final SecureStorage stprgae;
+  AuthInterceptor(this.dio, this.storage);
+
+  @override
+  void onRequest(RequestOptions ro, RequestInterceptorHandler handler){
+    //Add token to headerrs
+    handler.next(options);
+  }
+
+  @override onError(DioException err, ErrorInterceptorHandler handler) async {
+    if(err.response?.statusCode == 401){
+      final request = err.requestOptions;
+      _queue.add(request);
+      if(!_isrefreshnig){ _isRefreshing = true;}
+
+      try{
+        //Get refresh tokern and store
+        //dio.fetch() for all in queue
+        
+       }
+       catch(e){
+        _queue.clear();
+        handler.next(err);
+       }
+    }
+    //queue
+    //SecureStorage
+    //Satisfy all
+    //Complete
+  }
+}
+
+
+lib/
+│
+├── core/
+│   ├── network/
+│   │   ├── api_client.dart        // Dio instance + interceptors
+│   │   ├── auth_interceptor.dart  // token attach + refresh logic
+│   │
+│   ├── storage/
+│   │   ├── secure_storage.dart    // store tokens securely
+│   │
+│   ├── config/
+│   │   ├── env.dart               // base URLs
+│
+├── features/
+│   ├── auth/
+│   │   ├── data/
+│   │   │   ├── auth_api.dart
+│   │   │   ├── auth_repository.dart
+│   │   │
+│   │   ├── domain/
+│   │   │   ├── models/
+│   │   │   │   ├── token_model.dart
+│
+├── shared/
+│   ├── utils/
+│   ├── constants/
+│
+└── main.dart 

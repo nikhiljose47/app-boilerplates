@@ -1,0 +1,4 @@
+
+Offline
+1.Store to Db 
+2.Registr with Work manager of the code

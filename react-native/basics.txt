@@ -1,0 +1,55 @@
+
+
+UseRef X UseState X variable
+
+
+Re-render fix
+1.Memoise the entire fn.
+function Child() {
+  console.log('Child rendered');
+  return <Text>Hello</Text>;
+}
+
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <View>
+      <Child />
+      <Button title="Click" onPress={() => setCount(count + 1)} />
+    </View>
+  );
+}
+
+=> const Child = React.memo(()=> { return <Text>Hello</Text> })
+
+2.wrap with useCallback
+export default function App() {
+  const [count, setCount] = useState(0);
+
+  const handleClick = () => {
+    console.log('Hi');
+  };
+
+  return (
+    <View>
+      <Child onClick={handleClick} />
+      <Button title="Increase" onPress={() => setCount(count + 1)} />
+    </View>
+  );
+}
+
+
+const handleClick = useCallback(()=> {
+
+}, []);
+
+
+Folder structure -
+src/
+ ├── screens/
+ ├── components/
+ ├── services/
+ ├── store/
+ ├── hooks/
+ └── utils/

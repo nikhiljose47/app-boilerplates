@@ -1,0 +1,40 @@
+lib: flutter/services.dart
+
+Know Order - Channel --> named channel? --> transport? --> Platform spectic API --> Method channel creation in both sides
+
+Channel? = communication path between
+Flutter (Dart)
+      ↓
+Native platform (Android/iOS)
+
+
+Named channels? = = types
+1️⃣ MethodChannel - Used for request → response communication. -  Camera open, Fingerprint auth, Pay  (Note: for Ios = FlutterMethodChannel)
+2️⃣ EventChannel - Used for continuous data streams.  - Accelerometer, Bluetooth, GPS tracking
+
+
+Transport?
+Method calls are encoded into binary before being sent, and binary results received are decoded into Dart values.
+
+
+Platform specific API
+The code we write in corrsopoinfing lang are called platdfofr specic codes and API there we rely on are the platform specific API
+ex: batterryManagerAPI of android = PS API and methods we write  = PS methods, We add Platform specific method in respective folder within app
+
+
+Method channel creation in both sides
+We create in dart side = listener == await MethodChannel('battery_channel').invokeMethod('getBatteryLevel')
+We create in platform/hpst side == (Android) == The MainActivity creates a MethodChannel with a specific name that matches the Flutter 
+side. When Flutter invokes a method, the Android handler receives the call, checks name, executes native Android logic (in this case \
+retrieving battery level via BatteryManager), and sends the result back to Flutter using result.success()
+
+
+
+Calling/...
+try {
+  int level = await BatteryService.getBatteryLevel();
+} on PlatformException catch (e) {
+  print("Error: ${e.message}");
+}
+
+

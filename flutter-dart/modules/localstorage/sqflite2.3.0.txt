@@ -1,0 +1,12 @@
+final db = await openDatabase('app.db');
+
+// create table
+await db.execute(
+  'CREATE TABLE user(id INTEGER PRIMARY KEY, name TEXT)'
+);
+
+// insert
+await db.insert('user', {'id': 1, 'name': 'Nikhil'});
+
+// read
+final data = await db.query('user');

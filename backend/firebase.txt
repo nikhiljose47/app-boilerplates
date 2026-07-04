@@ -1,0 +1,14 @@
+
+
+
+
+Realtime :
+Each update = counts as a read.
+
+
+
+Free tier (per day) : 
+Stored data	1 GiB
+Document reads	50,000 per day
+Document writes	20,000 per day
+Document deletes	20,000 per day

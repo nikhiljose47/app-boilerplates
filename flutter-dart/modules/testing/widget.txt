@@ -1,0 +1,60 @@
+import 'package:flutter/material.dart';
+
+class CounterWidget extends StatefulWidget {
+  const CounterWidget({super.key});
+
+  @override
+  State<CounterWidget> createState() => _CounterWidgetState();
+}
+
+class _CounterWidgetState extends State<CounterWidget> {
+  int count = 0;
+
+  void increment() {
+    setState(() => count++);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Count: $count', key: const Key('counterText')),
+            ElevatedButton(
+              key: const Key('incrementBtn'),
+              onPressed: increment,
+              child: const Text('Increment'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+/// Test
+import 'package:flutter_test/flutter_test.dart';
+import 'package:your_app/counter_widget.dart';
+
+void main() {
+  testWidgets('Counter increments on button tap', (tester) async {
+    
+    // Build widget
+    await tester.pumpWidget(const CounterWidget());
+
+    // Verify initial state
+    expect(find.text('Count: 0'), findsOneWidget);
+
+    // Tap button
+    await tester.tap(find.byKey(const Key('incrementBtn')));
+
+    // Rebuild UI
+    await tester.pump();
+
+    // Verify updated state
+    expect(find.text('Count: 1'), findsOneWidget);
+  });
+}

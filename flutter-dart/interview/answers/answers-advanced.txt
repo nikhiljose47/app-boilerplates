@@ -1,6 +1,14 @@
-Senior Engineer = 
-1.Senior engineers design for change, not just for “working”. == Design for Change
-2.Think & Learn = Syper design the system 
+
+
+
+>> 3 types of patterns
+Creational patterns provide object creation mechanisms that increase flexibility and reuse of existing code.
+Structural patterns explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient.
+Behavioral patterns take care of effective communication and the assignment of responsibilities between objects.
+
+Creational - Factory, Abstract, singleton, Builder
+Structural - Adapter
+Behavioral - Bloc - Event → State → UI, Observer, Command (Buttons), States,
 
 
 How http to handle?
@@ -91,4 +99,89 @@ Schema:
 }
 
 
+Publishing - 
 
+🆕🆕!
+1.If embedded signature !== new signature => Reject.
+
+A.
+Account - 
+Have/Create Google Play Developer Account - App cat & name, Default Laguage, Free/Paid, Declerations
+
+
+B.
+Design Team & Prep -
+1.App icon (512x512)
+2.Feature graphic (1024x500)
+3.Screenshots (Phone required)
+4.App description
+5.Short description
+6.Privacy policy URL
+
+
+C.
+Dev Team & App Signing - #Security - Cryptographically proving that the APK/AAB was built by you, and next releases..
+✅ App authenticity (comes from same developer)
+✅ Secure updates (only same key can update app)
+✅ Prevents malicious tampering
+
+Signature from signing  = Hash of App then encrypted by private key = Digital signing with o/p = Signature.
+
+
+Step1:
+Step 1️⃣ You Generate Keystore
+keytool -genkey -v \
+-keystore my-release-key.jks \
+-keyalg RSA \
+-keysize 2048 \
+-validity 10000 \
+-alias my-key-alias
+
+.jks file is generated 
+
+Step2:
+Create key.properties inside android with this and path to .jks
+
+storePassword=your_store_password
+keyPassword=your_key_password
+keyAlias=my-key-alias
+storeFile=../my-release-key.jks
+
+Step3:
+Update android/app/build.gradle
+
+
+D.
+Build Release AAB (NOT APK) (Signed from prev step)
+
+cmd :
+flutter clean
+flutter pub get
+flutter build appbundle --release
+
+
+E.
+Console -
+Production → Create new release → Upload .aab  with Release notes, Version name, Version code
+
+F.
+IOS
+
+XCode - 
+
+Runner
+→ Targets → Runner
+→ Signing & Capabilities - Put 1.Team (Xcode → Settings → Accounts → Apple ID)  2.Bundle Identifier (com.nikhil.batchapp) 3.Signing cert
+
+Runner
+→ Assets.xcassets
+→ AppIcon - 20*20, 29*29, 40*40, 60*60, 1024*1024
+
+Signing - 
+Xcode will:
+1.Create certificates
+2.Create provisioning profiles
+3.Link them automatically
+
+
+flutter build ios --release

@@ -1,0 +1,20 @@
+
+
+Requistites:
+firebase_core: ^2.x.x
+firebase_messaging: ^14.x.x
+
+1. google-services.json (Android)
+File inject for Android and IOS from Firestore.
+
+2.
+Request persmission - final fcm = FirebaseMessaging.instance; await fcm.requestPermission();
+
+
+3.
+final token = await FirebaseMessaging.instance.getToken();
+
+
+4. 
+Listen it.
+FirebaseMessaging.onMessage.listen((msg) { print(msg.notification?.title); });

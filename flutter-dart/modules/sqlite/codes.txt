@@ -1,0 +1,33 @@
+
+
+Singleton Api -
+class AppDatabase {
+  static AppDatabase? _instance =  AppDatabase._internal();  // private instance object stored in variable
+  Database? _db;  //private variable
+
+  AppDatabase._internal()                 // without it => ❌ERR: Not initialized/initialization
+
+  factory AppDatabase() => _instance;     // without it => ❌ERR: no public constructor exists
+
+  static Future<Database> get database async {    // Singleton getter
+    _db ??= await _initDatabase();
+    return _db!;
+  }
+
+  static Future<Database> _initDatabase() async {
+    final path = join(await getDatabasesPath(), 'app.db');
+
+    return await openDatabase(
+      path,
+      version: 1,
+      onCreate: (db, version) async {
+        await db.execute('''
+          CREATE TABLE users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT
+          )
+        ''');
+      },
+    );
+  }
+}

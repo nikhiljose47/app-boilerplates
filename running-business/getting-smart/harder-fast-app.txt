@@ -1,0 +1,59 @@
+
+
+
+Get the capacity - 
+Visualize the entire block like playing the football match
+
+
+
+Habits - 
+1.Added tell and do
+2.Added book & write & arch on necessary
+
+
+Doing - 
+Visuyalize 20 days end - 1 real production-ready app, Clarity of thinking, New Architecture
+Visualize on mind doing - Seeing the block
+
+How to as blocks ?
+Add new 1.5 features < 1hr (create good standalone service = easier, visulize the growing..)
+-- top - Clock above 4-6-7 hrs/days? Hard?? Harder?? Hardest??
+Add performance caching, splitting, refacotor, goog names - 1hr - This is a block
+Learn docs, apply new working feature (do standalone parallel res mode = easy) - 1 hr
+Add data for 2 apps - 1 hr 
+Repeat Again 2 - = <6 hours clock
+
+ 
+~3 months
+
+People
+
+Stage 7 -                    Running and maintian phase
+
+
+
+##All/Lots of data from database only!
+Stage 6 -                    People added/Game along real people
+                             Actual running and cleaning, seo phase
+
+
+Stage 5 -                    Broken db structure
+
+
+
+##Lots of restructuring
+Stage 4                      Revamp, improved heart phase, revamps
+
+
+
+
+
+##Lots of wrong paths found!
+Stage 3                      Stuck phase, Redesigning
+
+
+
+
+##lots of visuals
+Stage 2                      Add backend and heap heart phase
+Stage 1                      Heap, unstructured UI phase

@@ -1,0 +1,10 @@
+
+
+
+Push Notification = Generic concept, A message sent from a server to a user’s device without user request. FCM = tool by Google to sent push notification.
+ 
+
+
+
+FCM and push notofication same
+

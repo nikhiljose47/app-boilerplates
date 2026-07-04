@@ -1,0 +1,31 @@
+
+
+This: Flutter wrapper around Android's WorkManager and iOS Background Tasks.
+
+
+Future<void> initializeApp() async {
+  await setupLocator();
+
+  final userRepo = sl<UserRepository>();
+  final connectivity = sl<ConnectivityService>();
+
+  Workmanager().initialize(callbackDispatcher);
+  Workmanager().registerPeriodicTask(
+    "user-sync",
+    syncTask,
+    frequency: const Duration(minutes: 15),
+  );
+}
+
+
+void callbackDispatcher() {
+  Workmanager().executeTask((task, inputData) async {
+    await setupLocator();
+    final userRepo = sl<UserRepository>();
+
+    if (task == syncTask) {
+      await userRepo.syncUsers();
+    }
+    return Future.value(true);
+  });
+}

@@ -1,0 +1,33 @@
+
+
+(Data (low) - Repository) - (Domain - UI)
+
+
+Streams pushed => Builders can listen and build from Bloc and BlocProvider just exposes it!
+Context is extended and => context.read() which has reference to bloc instance and we can get state by reference.state
+
+
+The real Bloc is the broadcaster = 
+final _controller = StreamController<State>.broadcast();
+
+
+Extension made on context and we get reference to the bloc & get current state!
+context.read<CounterBloc>()
+
+
+Bloc = business Logic Component
+It is a design pattern used for state management in Flutter, which provides us with an improved way to separate the UI layer from the business logic
+Privides -
+1.Seperatoin of concerns
+2.Scalable Code
+3.Readability
+4.Testability
+
+Inter Bloc communication
+2 ways for bloc to respond to another bloc (Not do tight coupling by putting in the bloc itself)
+1.Up a layer = Presenstation layer
+2.Down a layer = Domain layer
+
+
+
+

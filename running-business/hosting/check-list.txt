@@ -1,0 +1,8 @@
+
+
+1.Build production app with command
+2.Build - AOT compilation is enabled to convert HTML and TypeScript into efficient JavaScript before the browser downloads it.
+3.Build - Optimization flags (minification, tree-shaking, and dead-code elimination) are active in angular.json
+4.Build - Output Hashing: Use output hashing (e.g., --output-hashing=all) to prevent browser caching issues when new versions are deployed
+5.Config - main.ts enableProdMode() called in main.ts
+6.Config - Base Href - Set the correct <base href="/"> if your app is hosted in a subfolder using the --base-href flag

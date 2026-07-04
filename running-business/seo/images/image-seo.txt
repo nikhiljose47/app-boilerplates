@@ -1,0 +1,37 @@
+
+Webp (.75) << PNG (.92) << Jpeg (1) 
+
+
+Example imafge names -
+Flutter-mobile-development-course.webp
+organic-green-tea-500g.webp  //Product name
+edutech-learning-header-logo.webp   //logo
+chemistry-teacher-arun-kumar.webp  //teacher
+
+            <img
+              class=""
+              [src]="getImgSrc(item?.image)"
+              [alt]="getImgAlt(item)"
+              loading="lazy"
+              (error)="onImgError($event)"
+            />
+
+
+
+  getImgSrc(src?: string | null): string {
+    return src || PLACEHOLDER__COVER_IMG;
+  }
+
+  onImgError(event: Event) {
+    (event.target as HTMLImageElement).src = PLACEHOLDER__COVER_IMG;
+  }
+
+  getImgAlt(item: any): string {
+    return item?.label ? `${item.label} cover` : 'Class cover';
+  }
+
+
+
+Rules: 
+
+ALT Text (Most Important for SEO)

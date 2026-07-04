@@ -1,0 +1,371 @@
+My Base
+All are classes - a property box 
+We are mapping property to property, use it to display
+
+if noticed everywhere, constructors give as this property box. 
+
+-----------------
+
+
+
+Isolates 
+
+Compute() => Spawns isolate, Run the fn
+
+final data = await compute(parseJson, jsonString);  //ParseJson = A fn with para = jsonString
+
+
+
+What is MVVM?
+1liner - An architectural pattern that seperate UI from business logic using -ViewModel
+
+
+SetState not for large ? 
+Due to its working nature as it will update its widget subtree by 1st making the associated element dirty flag.
+Schema:
+setState - do Element.markNeedsBuild()
+ ↓
+Flutter - stores this element in a dirty elements list
+ ↓
+Flutter has a Scheduler + PipelineOwner
+ ↓
+Flutter batch it & try to rebuild 1 per frame (~16ms) at least.
+
+
+ListView ?
+A ListView is basically a CustomScrollView with a single SliverList in its CustomScrollView.slivers property.
+
+
+1. What is MaterialApp vs WidgetsApp?
+WidgetApp = Parent of Material App, So abstract & we can customize - Use it we need custom design system
+Material app - uses Google designs, styles, Cupurtino App
+
+
+61. SOLID principles in Flutter.
+Single, Open-Closed - Adding new class, without base class touch
+Liskov Sub - A subclass can replcae superclass => Reuse?/
+ex: A FirebaseAuthService can be swapped with a MockAuthService in tests & It must work!
+Interface Seg - Client should given irrelevant data => MediaPlayer, AuthService --> LoginService, RegistrationService, PasswordResetService
+-Follow up: if we use mediaPlayer as class, why ? and why we cant use a service utils?
+ Because maintainable code, else every client or ui will do initiliase dispose and calls, so error, hard to replace the 
+ player in future, boilerplate code, loose coupling. (Note: The class will be custom one from interface seg)
+Dep Inversion - the use of Liskov sub, telling always only use abstractions/top layer
+
+62. Explain Clean Architecture in Flutter.
+    Presentation, Domain, Data Layer
+    Clean Architecture is an app structure pattern that separates your code into independent, testable layers so UI, 
+business logic, and data are not tightly coupled.
+
+It makes large Flutter apps scalable, maintainable, and easy
+
+
+ ┌────────────────────┐
+ │    PRESENTATION    │  UI + State (e.g., Bloc/Riverpod)
+ └──────────▲─────────┘
+            │
+ ┌──────────┴─────────┐
+ │     DOMAIN          │  Entities + Use Cases + Abstract Repos
+ └──────────▲─────────┘
+            │
+ ┌──────────┴─────────┐
+ │     DATA            │  API/Firestore/SQLite implementations
+ └────────────────────┘
+
+
+Domain Layer should be pure ?
+
+
+
+36. What is InheritedWidget? (Use cases)
+
+InheritedWidget is a Flutter mechanism to efficiently share data down the widget tree without passing it manually through constructors.
+Normally, if a parent widget has data, every child must receive it via parameters. InheritedWidget avoids this by making data available to all descendants.
+
+
+How?
+Uses the default buildcontext to locate the top ancestor and get 
+
+Schema: 
+Widget = 
+class AuthInherited extends InheritedWidget {
+  final bool isAuthenticated;
+
+  const AuthInherited({
+    required this.isAuthenticated,
+    required Widget child,
+    super.key,
+  }) : super(child: child);
+
+  static AuthInherited of(BuildContext context) {
+    final AuthInherited? result =
+        context.dependOnInheritedWidgetOfExactType<AuthInherited>();
+    assert(result != null, 'No AuthInherited found in context');
+    return result!;
+  }
+
+  @override
+  bool updateShouldNotify(AuthInherited oldWidget) {  //We can manage update by updateShouldNotify
+    return isAuthenticated != oldWidget.isAuthenticated;
+  }
+}
+
+
+Usage
+final isAuth = AuthInherited.of(context).isAuthenticated; === context.dependOnInheritedWidgetOfExactType<AuthInherited>();
+
+
+We will put state in top widget and we will access it with build context's prop called dependOnInheritedWidgetOfExactType
+The entire mechanism is build to work with support of already inplace buildcontext.
+Flutter internally uses InheritedWidget for: Theme, MediaQuery, Navigator, etc - So we can - Auth, App config.
+
+Why Angular can store state in class and ...?
+Angular uses global dependency injection (DI) (tied with change detection) Vs Flutter uses the widget tree + BuildContext. 
+==> In Flutter state must always live inside the widget tree to trigger UI updates.
+
+
+So, Provider is a wrapper around InheritedWidget, designed to make it easier and safer to use.
+Widgets call context.watch() or context.read()
+Without Provider, using InheritedWidget directly is verbose and error-prone.
+
+
+
+>>What are ChangeNotifier and ValueNotifier? - Both are simple observable classes used for state management.
+
+ChangeNotifier - A class that holds state
+Calls notifyListeners() when state changes
+
+Widgets listening to it rebuild
+
+class Counter extends ChangeNotifier {
+  int value = 0;
+
+  void increment() {
+    value++;
+    notifyListeners();
+  }
+}
+
+ValueNotifier - A specialized version of ChangeNotifier
+
+Use cases:
+Toggles
+Simple flags
+Small, isolated state
+Relationship between all three
+
+InheritedWidget → low-level data propagation
+Provider → developer-friendly wrapper over InheritedWidget
+ChangeNotifier / ValueNotifier → state objects exposed via Provider
+
+Typical pattern
+ChangeNotifier → Provider → InheritedWidget → Widget Tree
+
+
+
+
+Errors & Async-await or Future
+Dart recommends using try-catch with async-await as it is better for debugging, stacktrace, readability.
+
+try{
+  await getData();
+}
+catch(e){
+  handleErr(e);
+}
+or
+await getData().catchError((err)=>handleErr());
+
+Problem -
+  print("A");
+  Future(() => print("B"));
+  Future.microtask(() => print("C"));
+  print("D");
+
+
+runZonedGuarded<R> function - 
+Central/One place logging of all async errors.
+Last hope/Critical for production debugging.
+Details - Stack traces, Device info, OS&App Versions, Crash grouping, 
+
+
+try-catch fail case: (if we not use await)
+try {
+  Timer(Duration(seconds: 1), () {   //Timer runs outside the current stack 
+    throw Exception('Error');
+  });
+} catch (e) {
+  print(e);
+}
+
+
+Schema: 
+runZonedGuarded(() {
+  runApp(MyApp());
+}, (error, stackTrace) {
+     //A usage of Firebase crashalytics service here.
+    FirebaseCrashlytics.instance.recordError(error, stack);  // log error
+});
+
+Another person: 
+Global error handling.
+
+
+
+
+FlutterError - 
+To get any flutter framework error on running. //rare-case
+
+FlutterError.onError = (details) {
+  FirebaseCrashlytics.instance.recordFlutterError(details);  //Flutter framework / build / render errors
+}; 
+
+
+Bargain -
+Industry standards, currenlty i have low.
+Freshers in same role getting 18LPA, I am not asking any more, i am asking is normalized.
+
+
+How do you fetch data from REST API in Flutter? - 
+REST API data is commonly fetched using either the http package or the dio package, depending on complexity & req.
+
+Main differences observed:
+Dio has typed response (unlike string), self catch all exception (unlike each if-else check),
+got interceptor and retry/timeout support.
+
+| Aspect                 | `http` package (`Response`) | `Dio` package (`Response<T>`) | Comments                                         |
+| ---------------------- | --------------------------- | ----------------------------- | ------------------------------------------------ |
+| Response Type          | `Response`                  | `Response<T>`                 | Dio is generic and supports typed responses      |
+| Response Body          | `String body`               | `T data`                      | http returns raw string; Dio returns parsed data |
+| JSON Parsing           | Manual (`jsonDecode`)       | Automatic                     | Dio parses JSON internally                       |
+| Status Code            | `int statusCode`            | `int? statusCode`             | Both provide HTTP status                         |
+| Status Message         | ❌ Not available             | `String? statusMessage`       | Dio exposes HTTP status text                     |
+| Headers                | `Map<String, String>`       | `Headers`                     | Dio provides richer header APIs                  |
+| Request Info           | ❌ Not available             | `RequestOptions`              | Dio retains original request metadata            |
+| Redirect Info          | `bool isRedirect`           | `bool isRedirect`             | Available in both                                |
+| Error Handling         | Manual checks               | `DioError` / `DioException`   | Dio supports centralized error handling          |
+| Interceptors           | ❌ Not supported             | ✅ Supported                   | Key advantage of Dio                             |
+| Timeout / Retry        | Manual                      | Built-in                      | Dio supports advanced configs                    |
+| File Upload / Download | Basic                       | Advanced                      | Dio handles multipart and progress easily        |
+| Enterprise Usage       | ❌ Limited                   | ✅ Preferred                   | Dio scales better for large apps                 |
+
+
+
+
+Coding - 
+
+
+list.where
+
+
+Object merging 
+
+ final Map<String, int> map1 = {'a': 1, 'b': 2};
+ final Map<String, int> map2 = {'b': 3, 'c': 4};
+ final Map<String, int> combinedMap = {...map1, ...map2};
+ 
+ print(combinedMap); // Output: {'a': 1, 'b': 3, 'c': 4}
+
+
+List<Item> mergeLists(List<Item> a, List<Item> b) {
+  final result  = <String, dynamic>{};
+
+  for(final item in b){
+
+    if(a.containsKey('id') && a['id'] == b['id]){
+        result = {...result, item}
+    }
+  }
+  
+  return map;
+}
+
+
+yield
+Stream<int> downloadProgress() async* {
+    for (int i = 0; i <= 100; i += 10) {
+      await Future.delayed(const Duration(milliseconds: 500));
+      yield i;
+    }
+  }
+
+
+What is Singleton classes (identical(db1, db2)) and common constructors?
+
+NEWWW
+_internal()
+1.Is a constructor!!! that does NOT trigger the factory. So when called B() => _internal called once then factory called
+2.underscore _ in Dart makes something private to the file
+3.Creats object instance.
+
+
+Example :
+import 'package:path/path.dart';  
+
+/// 1.Pure static methods way of singleton 
+
+class AppDatabase {
+  static Database? _database = null;  //First by static for instance/data store
+
+  static Future<Database> get database async {..}
+  static Future<Database> _initDatabase() async {..}
+}
+
+
+//2.Object singleton way of singleton
+
+
+
+
+Usage of object singleton 
+0.Simple get it 
+final service = AppDatabase(); - Get AppDatabase instance
+final db = await service.database; - 
+
+
+1.Dependency injection : UserRepo class now require db to work //connected..
+class UserRepository {
+  final AppDatabase db;
+
+  UserRepository(this.db);
+
+  Future<void> insertUser(String name) async {
+    final database = await db.database;
+    await database.insert('users', {'name': name});
+  }
+}
+
+2.Implement interfaces + dependency injection.
+
+class UserRepository {
+  final DatabaseService db;
+
+  UserRepository(this.db);
+
+  ... db. // Here as long as any Specific Db service like Hive, Sql, Mock promise/implements DatabaseService can be made here
+}
+
+abstract class DatabaseService {
+  Future<Database> get database;
+}
+
+class AppDatabase implements DatabaseService {
+  static Database? _db;
+
+  @override
+  Future<Database> get database async {
+    _db ??= await _initDatabase();
+    return _db!;
+  }
+}
+
+2.You want testability
+3.You want lifecycle control
+
+
+
+Use cases =
+Singleton class usage  - Logging, DB client, API client
+
+Others = 
+1.Normal === Generative  == Without arguments - Must declare mandaotry for not initialized ones. 
+2.Named - For clarity, or alternative way to construct like SizedBox.shrink() - avoid specific within by a seperate class

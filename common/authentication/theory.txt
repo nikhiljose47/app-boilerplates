@@ -1,0 +1,7 @@
+
+
+
+
+
+What is JWT tokens?
+A token to avoid bar-bar email-password checking.

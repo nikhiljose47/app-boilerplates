@@ -1,0 +1,49 @@
+
+
+Interfaces? 
+Discussion A:
+Why we need to make the class huge with all which are not mandatory for that class to work? => Interface ie add on demand.
+
+Discussion 2:
+Interface are type of horizontal inheritence?
+
+
+.!When inheriting, we are making change to behaviour of class, but we insist keeping same behaviour and only add prop = interface   
+.Use interfaces (implements) when classes only share a contract but behave differently
+.Mainly used on importing or the libraries and not in UI
+
+
+example:  
+1.The mixins, or Timer interface with UI widget.
+2.We are desinging a Payment service package 
+
+abstract class PaymentService {
+  void pay(double amount);
+}
+
+class RazorpayService implements PaymentService {
+  @override
+  void pay(double amount) {
+     String orderId = await createRazorpayOrder(amount);  // Specific RazorPay code will come.
+     print("Opening Razorpay checkout with orderId: $orderId");
+  }
+}
+
+now what is point in inheritence?? 
+.If we inherit then we can't write a general code for each right?
+
+When using inheritance, a child class extends a parent class and inherits its logic, which works well for hierarchical relationships like Vehicle → Car or Widget → StatelessWidget.
+classes do not share actual implementation logic, forcing them into an inheritance hierarchy leads to incorrect abstraction and tightly coupled code. In such cases, 
+interfaces are preferable because they allow flexibility, loose coupling, easier testing, and the ability to swap implementations without affecting higher-level code 
+such as UI or controllers.
+For example, different payment providers such as Razorpay, Stripe, or PayPal all support the concept of “processing a payment,” but each provider has its own SDK, API 
+parameters, authentication, and request flow. An interface like PaymentService can define a method such as pay(amount), ensuring that every payment provider supports
+that operation while allowing each implementation to interact with its own API internally.
+
+
+Abstraction - Group all states under one type, Enable is checks in UI , Polymorphism (CRITICAL)?
+Not used then - Invalid states possible (by making a closed system) ❌ No enforcement ❌
+
+
+
+For more learning - Try start desigining classes by own!

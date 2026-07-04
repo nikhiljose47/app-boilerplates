@@ -1,0 +1,27 @@
+
+Abstract are type of classes - 
+
+1.Disucssion 1: (Loose)
+Why write the same logic for all? 
+RenderObject --> 
+
+2.Discussion 2: (Grouping)
+There will be a leader/common object/GENE that asll these classes have OR Family Name ! --> Abstract class
+
+3.Discussion 3: (Same as interface)
+Abstract classes let you add base behavior so programmers don't have to code everything, while still forcing them to follow your design.
+ie abstract ~ interface ie Both force implement the abstarct/concrete methods
+
+
+4Discussion 
+
+
+
+Got:
+1.All - Loose coupling
+2.All - Not all class able to instantiate
+3.Enable dependency inversion.
+
+
+
+Designed to be extended (inherited from) by concrete (non-abstract) subclasses, which then provide implementations for the abstract methods

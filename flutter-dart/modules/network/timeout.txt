@@ -1,0 +1,29 @@
+
+Simple Dio or Http retry - 
+
+Future<Response> fetchWithRetry(Dio dio, String url) async {
+  int retries = 0;
+
+  while (retries < 3) {
+    try {
+      return await dio.get(url);
+    } catch (e) {
+      retries++;
+      if (retries == 3) rethrow;
+      await Future.delayed(Duration(seconds: 1));
+    }
+  }
+
+  throw Exception("Failed after retries");
+}
+
+
+  http_retry: ^0.2.0
+
+  final client = RetryClient(
+  http.Client(),
+  retries: 3,
+  when: (response) => response.statusCode >= 500,
+);
+
+final response = await client.get(Uri.parse(url));

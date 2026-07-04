@@ -1,0 +1,28 @@
+Tokens - 
+Safest = Stores data securely using Keychain/KeystoreAndroid, iOS, macOSsecure_storageAdvanced with AES encryption + path_provider
+So, package = flutter_secure_storage
+So, Normal service to - 
+class TokenStorageService {
+  final FlutterSecureStorage _storage;  (flutter_secure_storage/flutter_secure_storage.dart)
+  TokenStorageService(this._storage);
+
+  Future<void> saveTokens({
+    required String accessToken,
+    required String type,
+  }) async {
+    await Future.wait(
+      _storage.write(key: _accessTokenKey, value: accessToken),
+    );
+  }
+
+  Future<String?> getToken(required String type) async {
+    return await _storage.read(key: _accessTokenKey);
+  }
+
+  Future<void> clearTokens() async {
+    await Future.wait([
+      _storage.delete(key: _accessTokenKey),
+      _storage.delete(key: _refreshTokenKey),
+    ]);
+  }
+}

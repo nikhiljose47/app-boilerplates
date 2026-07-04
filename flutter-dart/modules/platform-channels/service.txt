@@ -1,0 +1,11 @@
+import 'package:flutter/services.dart';
+
+class BatteryService {
+  static const platform = MethodChannel('battery_channel');
+
+  static Future<int> getBatteryLevel() async {
+    final int batteryLevel = await platform.invokeMethod('getBatteryLevel');
+
+    return batteryLevel;
+  }
+}

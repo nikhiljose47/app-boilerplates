@@ -1,0 +1,32 @@
+
+iNBUILT/Shipped along with Flutter SDK - flutter_test package
+
+
+Requirements:
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+Env understand
+1.Lack of emulation/running or setstate for update - by methods like pump()
+2.
+
+tester => handle for simulation
+
+
+tester.pump() == setState(()) invoke
+
+tester.pumpAndSettle() == Wait until UI is stable ie Keeps pumping frames until everything stops - animations, futures, microtasks, stream, navigation
+
+findsNothing, findsWidgets, findsNWidgets == Matchers 
+
+
+
+In-depth
+The flutter_test package provides the following tools for testing widgets:
+
+The WidgetTester allows building and interacting with widgets in a test environment.
+The testWidgets() function automatically creates a new WidgetTester for each test case, and is used in place of the normal test() function.
+The Finder classes allow searching for widgets in the test environment.
+Widget-specific Matcher constants help verify whether a Finder locates a widget or multiple widgets in the test environment.

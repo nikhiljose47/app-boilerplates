@@ -1,41 +1,38 @@
 
-1.Add meta and tags
-
-2.Ensure app is crawlable
-def - lets see google ur html before scrpt runs
-
-#Angular
-Use angular universal / SSR
-
-3.Add a sitemap
-
-4.Addd robots.txt
 
 
+B.Website Foundation - (Codex)
+Important pages are crawlable and indexable
+XML sitemap is submitted
+Robots.txt is configured correctly
+HTTPS works consistently
+Duplicate URLs have suitable canonical tags
+Broken links and redirect chains are repaired
+Mobile navigation and forms work correctly
+Product and service pages are reachable through internal links
+Titles and meta descriptions are unique
+Images are compressed
+Structured data is implemented where appropriate
+Contact, privacy, returns and company information are clear
 
-5.No bad performance of loaders and errors
+Add meta and tags
 
+#Angular - Use angular universal / SSR
 
-6.Use semantic and semantic html
+Use semantic and semantic html
 <header></header>
 <nav></nav>
 <main></main>
 <footer></footer>
 
-
-
-7.Meaningful URL's 
+Meaningful URL's 
 { path: 'shop/handmade-soaps', component: ShopComponent }
 
-
-
-8.Use canonical URL'saving
+Use canonical URL'saving
 to avaoid duplicate pages
 this.meta.updateTag({ rel: 'canonical', href: 'https://yourdomain.com/home' });
 
-
-
-9.Add open graph & twitter meta tags
+Add open graph & twitter meta tags
 Helps with link previews on social media:
 
 this.meta.addTags([
@@ -46,9 +43,7 @@ this.meta.addTags([
 ]);
 
 
-
-
-10.Add G analytics/Search console
+Add G analytics/Search console
 Add your site to Google Search Console and verify it.
 <!-- In index.html -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
@@ -60,17 +55,9 @@ Add your site to Google Search Console and verify it.
 </script>
 
 
-#
-Angular
-Use ngx-meta or Angular SEO tools for easier meta management.
-
-
-
-Extra - 
 Fix all SSR SEO safe, Common SSR breakers: window, document,localStorage, navigator.
 
 import { isPlatformBrowser } from '@angular/common';
-
 if (isPlatformBrowser(this.platformId)) {
   localStorage.getItem('x');
 }

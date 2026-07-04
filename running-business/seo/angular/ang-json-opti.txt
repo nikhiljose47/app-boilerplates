@@ -1,0 +1,31 @@
+   
+   
+    "optimization": {
+      "scripts": true,
+      "styles": {
+        "minify": true,
+        "inlineCritical": true
+      }
+    }
+
+
+1.scripts: true
+
+Angular CLI will:
+minify JS
+remove dead code (tree shaking)
+compress bundles
+
+
+2.styles.minify: true 
+
+.container {
+  padding: 10px;
+} 
+
+convert to  - .container{padding:10px}
+
+
+3.styles.inlineCritical: true
+
+Angular extracts critical above-the-fold CSS and injects it into index.html.

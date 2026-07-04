@@ -1,0 +1,9 @@
+
+
+<action android:name="android.intent.action.VIEW"/> - This app can view/open links
+
+
+<category android:name="android.intent.category.DEFAULT"/> - Allows normal app launching
+<category android:name="android.intent.category.BROWSABLE"/> - Allows opening from any source
+<data android:scheme="https" android:host="yourdomain.com"/> - Matcher or the data
+

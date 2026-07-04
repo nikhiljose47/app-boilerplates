@@ -1,0 +1,24 @@
+
+
+Scalable in 
+1.Ui layer - Micro UI, Bloc
+2.Domain layer
+3.Entire - Clean Architecure
+
+
+Use every items or things which comes with 
+
+Architecutures - 
+Bloc has! and it is basically MVVM ! -  for the UI only
+Flutter has! - for the entire app
+
+
+
+
+Micro UI?
+Decompose Ui into feature based or one function each 
+Each Micro one have state or statless with models so each can do its own - Low coupling
+Each now has isolation and no entire state like buttons in a grid in Chimple Learning - Isolation
+For folder structure and readbale go for feature based folder Vs Type based. ex: user: { ui, bloc, models,repo }
+What it helps? - Parallel development (in terms of package development!)
+What it helps-2? - Modules should be plug-and-play without affecting others (replace later!) - Independent development

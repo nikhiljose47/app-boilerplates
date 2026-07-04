@@ -1,0 +1,63 @@
+
+Backlinks from other websites affect 3 main things -
+1.Authority - If a trusted site links to you, your site looks credible.
+
+Example:
+MIT.edu → your site   // This is extremely powerful.
+
+2.Discoverability - Search engines find new pages through links.
+
+site A links to you
+↓
+Google crawler follows link
+↓
+your page gets indexed faster
+
+3.Ranking Power - Pages with strong backlinks usually rank higher.
+
+Example search result:
+#1 result
+#2 result
+#3 result
+
+
+
+You can create backlinks - 
+1. YouTube - Create videos and link your site:
+
+video description → freetutor.com   //Very effective.
+
+2. Medium Articles - Write educational articles:
+
+How to prepare for board exams
+How to learn math faster // Link your platform.
+
+3. Quora -  Answer questions like:
+
+best free online tuition
+how to learn physics
+
+Add helpful links.
+
+4. GitHub - If your site has open educational resources.
+
+5. Teacher Blogs -  Teachers linking to your platform is excellent SEO.
+
+
+
+Types of Backlinks (Very Important) :
+
+| Backlink Quality        | Type                    | Example                     |
+| ----------------------- | ----------------------- | --------------------------- |
+| **High Quality**        | Education sites         | University blogs            |
+| **High Quality**        | High authority blogs    | Medium.com                  |
+| **High Quality**        | Tech blogs              | Dev.to                      |
+| **High Quality**        | News sites              | Online publications         |
+| **High Quality**        | Documentation platforms | GitHub                      |
+| **Medium Quality**      | Video platforms         | YouTube descriptions        |
+| **Medium Quality**      | Professional platforms  | LinkedIn articles           |
+| **Medium Quality**      | Community forums        | Reddit posts                |
+| **Medium Quality**      | Q&A platforms           | Quora answers               |
+| **Low Quality (Avoid)** | Spam directories        | Low-quality SEO directories |
+| **Low Quality (Avoid)** | Paid backlink farms     | Purchased bulk backlinks    |
+| **Low Quality (Avoid)** | Comment spam            | Random blog comments        |

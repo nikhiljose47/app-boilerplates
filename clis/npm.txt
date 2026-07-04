@@ -1,0 +1,12 @@
+
+
+Usages
+1.Modules/Package check
+2.Cached modules - clean/fix/delete
+
+
+
+
+
+npm list @ngrx/effects  || npm list <package>
+npm cache clean --force

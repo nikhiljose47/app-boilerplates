@@ -1,8 +1,0 @@
-
-
-in - memory
-
-local storage
-
-hive db
-

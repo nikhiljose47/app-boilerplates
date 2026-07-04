@@ -1,0 +1,4 @@
+
+
+SVGO online - https://jakearchibald.github.io/svgomg/
+

@@ -1,0 +1,8 @@
+
+1.What i have done?
+1.Edited mip-map files
+2.Edited internedt connection permission
+3.
+
+Editing permissions -  https://developer.android.com/guide/topics/manifest/uses-permission-element
+<uses-permission android:name="android.permission.CAMERA"/>

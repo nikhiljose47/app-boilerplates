@@ -1,0 +1,5 @@
+
+1.What is CI/CD?
+2.CI flow?
+3.How to setup the pipeline?
+4.Explain the .gitlab-ci.yml file.

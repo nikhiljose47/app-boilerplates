@@ -1,0 +1,74 @@
+
+
+
+
+>>Design Patterns
+
+Design patterns are commonly grouped into three categories: 
+Creational patterns that deal with object creation (like Singleton and Factory), 
+Structural patterns that deal with how objects are composed (like Adapter and Facade), and 
+Behavioral patterns that focus on how objects communicate with each other (like Observer and Strategy).
+
+
+
+>>Future.wait()
+The Future.wait() method in Dart is used to efficiently handle multiple asynchronous operations concurrently, and wait for all of them to complete. It takes an Iterable<Future> and returns a single Future that completes with a list of all the results, in the original order, once every task is finished.
+Results: If all futures succeed, Future.wait() returns a List containing the results of each future, in the same order as they were provided in the input list.
+Error Handling: If any single future within the list fails with an error, the entire Future.wait() operation immediately fails and throws that error.
+
+
+>> Packages
+
+Packages in flutter  && UI bundles are reusable component libraries packaged as Flutter packages
+
+flutter create --template=package  <name>
+
+Structure - 
+my_utils
+ ├ lib
+ │   ├ my_utils.dart   //export file
+ │   └ src
+ │       ├ math_utils.dart
+ │       └ string_utils.dart
+ ├ example
+ ├ test
+ ├ README.md
+ └ pubspec.yaml
+
+Structure - export file -
+
+library my_utils;   //So this file exposes the APIs from the src folder.
+
+export 'src/math_utils.dart';
+export 'src/string_utils.dart';
+
+
+Ways of package loc or importing..
+From pub.. 
+dependencies:
+  http: ^1.2.0
+
+From local.. //Same repo or machine ..one bundle or development environment
+dependencies:
+  my_utils:
+    path: ../my_utils
+
+From git..
+dependencies:
+  my_utils:
+    git:
+      url: https://github.com/company/my_utils.git
+      ref: main
+
+dependencies:  //Mono repo ie app, packages, etc in single repo 
+  my_utils:
+    git:
+      url: https://github.com/company/flutter-packages.git
+      path: packages/my_utils
+
+From hosted private ..
+dependencies:
+  my_utils:
+    hosted:
+      name: my_utils
+      url: https://private-pub.company.com

@@ -1,0 +1,99 @@
+
+
+What is repository pattern?
+
+Difference between service layer and repository?
+
+How do you design reusable UI components?
+
+Packages
+
+UI Bundles
+
+What is a design system?
+
+Why create shared UI packages?
+
+How do you ensure consistent theming?
+
+How would you build reusable widgets?
+
+How do you version UI components?
+
+
+Flutter Internals
+
+What happens when setState() is called?
+
+Explain widget tree vs element tree.
+
+What is render object?
+
+How does Flutter achieve 60fps?
+
+What causes frame drops?
+
+
+Performance
+
+How to optimize large lists?
+
+What is RepaintBoundary?
+
+How do you reduce rebuilds?
+
+Why use const widgets?
+
+What is Flutter DevTools?
+
+State Management
+
+Provider vs Bloc vs Riverpod?
+
+When to use Bloc?
+
+What is Cubit?
+
+What is immutable state?
+
+How do you manage global state?
+
+Platform Integration
+
+What are platform channels?
+
+Difference between MethodChannel and EventChannel?
+
+When would you write native code?
+
+How to access device sensors?
+
+What is plugin architecture?
+
+
+
+Testing
+
+What types of tests exist in Flutter?
+
+Widget testing vs integration testing?
+
+How do you mock APIs?
+
+How to test blocs?
+
+What tools do you use for testing?
+
+
+DevOps
+How do you manage environments?
+What is CI/CD in Flutter?
+How do you automate builds?
+What is flavor configuration?
+How do you manage secrets?
+Real App Problems
+How would you build offline support?
+How do you implement push notifications?
+How would you build chat messaging?
+How do you handle pagination?
+How do you monitor crashes?

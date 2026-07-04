@@ -1,0 +1,13 @@
+
+
+
+Requisites:
+1.Popper.js
+
+
+
+
+Build configuration:
+build command : npx ng build --output-path dist/cloudflare
+output folder : /dist/cloudflare/browser
+
