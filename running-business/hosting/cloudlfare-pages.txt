@@ -7,6 +7,20 @@ Requisites:
 
 
 
+
+Setup: (Pages)
+npx wrangler login
+npx ng build --configuration production - Make dist/<content>
+npx wrangler pages deploy dist/my-app/browser
+
+
+Setup: (Worker)
+npx wrangler login
+...
+npx wrangler deploy
+
+
+
 Build configuration:
 build command : npx ng build --output-path dist/cloudflare
 output folder : /dist/cloudflare/browser
